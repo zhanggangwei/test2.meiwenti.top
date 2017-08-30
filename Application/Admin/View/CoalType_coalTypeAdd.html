@@ -1,0 +1,15 @@
+<div class="pageContent" style="overflow-y:scroll;">
+    <form action="<{:U('Admin/CoalType/coalTypeAdd')}>" id="j_add_coal_type" data-toggle="validate" data-alertmsg="false" method="post">
+        <div style="padding: 10pt;">
+            <div class="bjui-row col-1">
+                <input type="hidden" name="is_admin" value="1">
+                <label class="row-label">煤种名：</label>
+                <div class="row-input"><input type="text" name="name" value="" data-rule="required"></div>
+            </div>
+            <hr style="margin:5px 0 15px;">
+            <div class="text-center">
+                <button type="submit" class="btn-default btn">提交</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,75 @@
+<script>
+    var dataurl="<{:U('Admin/Users/getUnauthorizedList')}>";
+</script>
+<div class="bjui-pageHeader" style="background-color:#fefefe; border-bottom:none;">
+    <form action="" data-toggle="ajaxsearch" data-options="{searchDatagrid:$.CurrentNavtab.find('#datagrid-user-not-audit-filter')}" id="users-not-audit-form">
+        <fieldset>
+            <div style="margin:0; padding:1px 5px 5px;">
+                <span>账号：</span>
+                <input type="text" name="account" size="10">
+                <span>姓名：</span>
+                <input type="text" name="name" size="10">
+                <span>手机：</span>
+                <input type="text" name="phone" size="10">
+                <div class="btn-group">
+                    <button type="submit" class="btn-green" data-icon="search">开始搜索！</button>
+                    <button type="reset" class="btn-orange" data-icon="times">重置</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<div class="pageContent" style="position:absolute;top:40pt;bottom: 10pt;width: 100%">
+    <table class="table table-bordered" data-toggle="datagrid" data-options="{
+        height:'100%',
+        gridTitle: '未认证用户列表',
+		 showLinenumber:false,
+        dataUrl: dataurl,
+        fieldSortable:false,
+        filterMult:false,
+        columnMenu:false,
+        local:'remote',
+        filterThead:false,
+        paging:{pageSize:10},
+        width:'98%'
+	}" id="datagrid-user-not-audit-filter">
+        <thead>
+        <tr>
+            <th data-options="{name:'id',align:'center'}" style="width: 5%">ID</th>
+            <th data-options="{name:'account',align:'center'}" style="width: 5%">账号</th>
+            <th data-options="{name:'real_name',align:'center'}" style="width: 5%">姓名</th>
+            <th data-options="{name:'phone',align:'center'}" style="width: 5%">手机号</th>
+            <th data-options="{name:'create_time',align:'center'}" style="width: 5%">注册日期</th>
+            <th data-options="{name:'type',align:'center',render:reg_source}" style="width: 5%">注册来源</th>
+            <th data-options="{name:'province',align:'center'}" style="width: 5%">省</th>
+            <th data-options="{name:'city',align:'center'}" style="width: 5%">市</th>
+            <th data-options="{name:'area',align:'center'}" style="width: 5%">区</th>
+            <th data-options="{name:'detail',align:'center'}" style="width: 5%">详细地址</th>
+            <th data-options="{name:'dostr',align:'center'}" style="width: 5%">操作</th>
+
+            <!--<th data-options="{name:'id',align:'center'}" style="min-width: 50px">ID</th>-->
+            <!--<th data-options="{name:'account',align:'center'}" style="min-width: 100px">账号</th>-->
+            <!--<th data-options="{name:'real_name',align:'center'}" style="min-width: 100px">姓名</th>-->
+            <!--<th data-options="{name:'phone',align:'center'}" style="min-width: 120px">手机号</th>-->
+            <!--<th data-options="{name:'create_time',align:'center'}" style="min-width: 100px">注册日期</th>-->
+            <!--<th data-options="{name:'type',align:'center',render:reg_source}" style="min-width: 100px">注册来源</th>-->
+            <!--<th data-options="{name:'province',align:'center'}" style="min-width: 100px">省</th>-->
+            <!--<th data-options="{name:'city',align:'center'}" style="min-width: 100px">市</th>-->
+            <!--<th data-options="{name:'area',align:'center'}" style="min-width: 100px">区</th>-->
+            <!--<th data-options="{name:'detail',align:'center'}" style="min-width: 150px">详细地址</th>-->
+            <!--<th data-options="{name:'dostr',align:'center'}" style="min-width: 100px">操作</th>-->
+        </tr>
+        </thead>
+    </table>
+
+</div>
+<script>
+    function reg_source(value){
+        if (value == 1) {
+            return '运输版';
+        } else {
+            return '企业版';
+        }
+    }
+</script>

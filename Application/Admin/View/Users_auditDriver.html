@@ -1,0 +1,59 @@
+<script>
+    var dataurl="<{:U('Admin/Users/getAuditDriver')}>";
+    $('#users-audit-driver-form').attr('action', dataurl);
+</script>
+<div class="bjui-pageHeader" style="background-color:#fefefe; border-bottom:none;">
+    <form action="" data-toggle="ajaxsearch" data-options="{searchDatagrid:$.CurrentNavtab.find('#datagrid-audit-driver-filter')}" id="users-audit-driver-form">
+        <fieldset>
+            <legend style="font-weight:normal;">页头搜索：</legend>
+            <div style="margin:0; padding:1px 5px 5px;">
+                <span>驾驶证号：</span>
+                <input type="text" name="lic_number" class="form-control" size="15">
+
+                <span>姓名：</span>
+                <input type="text" name="name" class="form-control" size="15">
+
+                <span>手机：</span>
+                <input type="text" name="phone" class="form-control" size="15">
+
+                <div class="btn-group">
+                    <button type="submit" class="btn-green" data-icon="search">开始搜索！</button>
+                    <button type="reset" class="btn-orange" data-icon="times">重置</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<div class="pageContent" style="position:absolute;top:69pt;bottom: 40pt;width: 100%">
+    <table class="table table-bordered" data-toggle="datagrid" data-options="{
+        height:'100%',
+        gridTitle: '待审核司机',
+		 showLinenumber:false,
+        dataUrl: dataurl,
+        fieldSortable:false,
+        filterMult:false,
+        columnMenu:false,
+        local:'remote',
+        filterThead:false,
+        paging:{pageSize:10}
+	}" id="datagrid-audit-driver-filter">
+        <thead>
+        <tr>
+            <th data-options="{name:'id',align:'center'}" style="min-width: 30px">ID</th>
+            <th data-options="{name:'lic_number',align:'center'}" style="min-width: 100px">驾驶证</th>
+            <th data-options="{name:'real_name',align:'center'}" style="min-width: 100px">姓名</th>
+            <th data-options="{name:'phone',align:'center'}" style="min-width: 100px">手机</th>
+            <th data-options="{name:'create_time',align:'center'}" style="min-width: 100px">注册日期</th>
+            <th data-options="{name:'province',align:'center'}" style="min-width: 30px">省</th>
+            <th data-options="{name:'city',align:'center'}" style="min-width: 100px">市</th>
+            <th data-options="{name:'area',align:'center'}" style="min-width: 100px">区</th>
+            <th data-options="{name:'detail',align:'center'}" style="min-width: 250px">详细地址</th>
+            <th data-options="{name:'dostr',align:'center'}" style="min-width: 100px">操作</th>
+        </tr>
+        </thead>
+    </table>
+
+</div>
+<script>
+</script>

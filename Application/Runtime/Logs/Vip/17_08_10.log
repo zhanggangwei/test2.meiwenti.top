@@ -1,0 +1,432 @@
+[ 2017-08-10T10:29:50+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.016246s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.010637s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.010680s ]
+
+[ 2017-08-10T10:29:50+08:00 ] 127.0.0.1 /Vip/Login/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000391s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000528s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000576s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001616s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001657s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.111906s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.111943s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.006938s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006972s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.008677s ]
+INFO: [ app_end ] --END-- [ RunTime:0.008719s ]
+
+[ 2017-08-10T10:30:13+08:00 ] 127.0.0.1 /Vip/Login/doLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000476s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000354s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000393s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000035s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000068s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.030662s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030713s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000188s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000210s ]
+
+[ 2017-08-10T10:30:13+08:00 ] 127.0.0.1 /Vip/Login/__IPUBLIC__/css/admin.css?v=4.1.0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000225s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000438s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000478s ]
+ERR: 非法操作:__IPUBLIC__
+
+[ 2017-08-10T10:30:15+08:00 ] 127.0.0.1 /Vip/Login/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000235s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000308s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000345s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000053s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000080s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021558s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021609s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000207s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000231s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000440s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000474s ]
+
+[ 2017-08-10T10:30:24+08:00 ] 127.0.0.1 /Vip/Login/doLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000291s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000506s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000559s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000039s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000077s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006287s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006480s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000872s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001013s ]
+
+[ 2017-08-10T10:30:24+08:00 ] 127.0.0.1 /Vip/Login/__IPUBLIC__/css/admin.css?v=4.1.0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000239s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000445s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000485s ]
+ERR: 非法操作:__IPUBLIC__
+
+[ 2017-08-10T10:30:25+08:00 ] 127.0.0.1 /Vip/Login/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000320s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000440s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000482s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000056s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000088s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021683s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021730s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000179s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000202s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000379s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000407s ]
+
+[ 2017-08-10T10:32:01+08:00 ] 127.0.0.1 /Vip/Login/doLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000305s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000442s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000493s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000038s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000075s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007974s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008054s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000271s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000298s ]
+
+[ 2017-08-10T10:32:01+08:00 ] 127.0.0.1 /Vip/Login/__IPUBLIC__/css/admin.css?v=4.1.0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000227s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000345s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000401s ]
+ERR: 非法操作:__IPUBLIC__
+
+[ 2017-08-10T10:32:03+08:00 ] 127.0.0.1 /Vip/Login/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000296s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000381s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000418s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000056s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000089s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021056s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000196s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000219s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000437s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000466s ]
+
+[ 2017-08-10T10:32:11+08:00 ] 127.0.0.1 /Vip/Login/doLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000209s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000329s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000371s ]
+SQL: SHOW COLUMNS FROM `coal_users` [ RunTime:0.0404s ]
+NOTIC: [2] Missing argument 2 for authcode(), called in C:\phpStudy\WWW\mwt2.0_web\Application\Vip\Controller\LoginController.class.php on line 22 and defined C:\phpStudy\WWW\mwt2.0_web\Application\Common\Common\function.php 第 13 行.
+NOTIC: [8] Undefined variable: key C:\phpStudy\WWW\mwt2.0_web\Application\Common\Common\function.php 第 14 行.
+SQL: SELECT * FROM `coal_users` WHERE ( (account = '13791842108' or phone = '13791842108') AND password = 'de13a23d04c96774e64e93ae78b2b8ad4ba8133c' ) LIMIT 1   [ RunTime:0.0025s ]
+SQL: SHOW COLUMNS FROM `coal_users` [ RunTime:0.0102s ]
+SQL: SELECT u.*,c.name as c_name,c.pid,c.is_passed as c_is_passed,g.title FROM coal_users u left join coal_company c on c.id = u.company_id left join coal_auth_group_access aga on aga.uid = u.id left join coal_auth_group g on g.id = aga.group_id  WHERE u.id = '587' LIMIT 1   [ RunTime:0.0007s ]
+SQL: UPDATE `coal_users` SET `login_time`='2017-08-10 10:32:11',`login_ip`='127.0.0.1' WHERE `id` = 587 [ RunTime:0.0045s ]
+NOTIC: [8] Undefined index: nickname C:\phpStudy\WWW\mwt2.0_web\Application\Vip\Controller\LoginController.class.php 第 74 行.
+SQL: SHOW COLUMNS FROM `coal_operate_log` [ RunTime:0.0121s ]
+SQL: INSERT INTO `coal_operate_log` (`user_id`,`company_id`,`type`,`remark`,`create_time`) VALUES ('587','304','0','809138成功登录企业版PC端','2017-08-10 10:32:11') [ RunTime:0.0024s ]
+
+[ 2017-08-10T10:32:13+08:00 ] 127.0.0.1 /Vip/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000351s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000473s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000515s ]
+SQL: SHOW COLUMNS FROM `coal_users` [ RunTime:0.0333s ]
+SQL: SELECT `default_set_menu` FROM `coal_users` WHERE `id` = 587 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `coal_company` [ RunTime:0.0106s ]
+SQL: SELECT `tender` FROM `coal_company` WHERE `id` = 304 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `coal_bill` [ RunTime:0.0100s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `coal_bill` WHERE `company` = 304 AND `state` = 6 AND `dis_time` BETWEEN '2017-08-01 0:0:0' AND '2017-08-10 23:59:59' LIMIT 1   [ RunTime:0.0073s ]
+SQL: SELECT SUM(end_w) AS tp_sum FROM `coal_bill` WHERE `company` = 304 AND `state` = 6 AND `dis_time` BETWEEN '2017-08-01 0:0:0' AND '2017-08-10 23:59:59' LIMIT 1   [ RunTime:0.0071s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `coal_bill` WHERE `company` = 304 AND `state` = 6 AND `dis_time` BETWEEN '2017-08-10 0:0:0' AND '2017-08-10 23:59:59' LIMIT 1   [ RunTime:0.0069s ]
+SQL: SELECT SUM(end_w) AS tp_sum FROM `coal_bill` WHERE `company` = 304 AND `state` = 6 AND `dis_time` BETWEEN '2017-08-10 0:0:0' AND '2017-08-10 23:59:59' LIMIT 1   [ RunTime:0.0071s ]
+SQL: SHOW COLUMNS FROM `coal_logistics` [ RunTime:0.0164s ]
+SQL: SELECT SUM(res_quantity) AS tp_sum FROM `coal_logistics` WHERE `assigned_id` = 304 AND `state` = 1 LIMIT 1   [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `coal_company` [ RunTime:0.0069s ]
+SQL: SELECT `auto_arrbill` FROM `coal_company` WHERE ( id = 304 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT `is_hide_index_order` FROM `coal_company` WHERE `id` = 304 LIMIT 1   [ RunTime:0.0001s ]
+ERR: 1305:FUNCTION mwt.ST_X does not exist
+ [ SQL语句 ] : select ST_X(add_gps) as x,ST_Y(add_gps) as y from coal_company WHERE (id=304)
+ERR: 1305:FUNCTION mwt.ST_X does not exist
+ [ SQL语句 ] : select ST_X(add_gps) as x,ST_Y(add_gps) as y from coal_company WHERE (id=304)
+
+[ 2017-08-10T11:00:09+08:00 ] 127.0.0.1 /Vip/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000442s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000491s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000530s ]
+SQL: SHOW COLUMNS FROM `coal_users` [ RunTime:0.0291s ]
+SQL: SELECT `default_set_menu` FROM `coal_users` WHERE `id` = 587 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `coal_company` [ RunTime:0.0147s ]
+SQL: SELECT `tender` FROM `coal_company` WHERE `id` = 304 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `coal_bill` [ RunTime:0.0116s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `coal_bill` WHERE `company` = 304 AND `state` = 6 AND `dis_time` BETWEEN '2017-08-01 0:0:0' AND '2017-08-10 23:59:59' LIMIT 1   [ RunTime:0.0094s ]
+SQL: SELECT SUM(end_w) AS tp_sum FROM `coal_bill` WHERE `company` = 304 AND `state` = 6 AND `dis_time` BETWEEN '2017-08-01 0:0:0' AND '2017-08-10 23:59:59' LIMIT 1   [ RunTime:0.0093s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `coal_bill` WHERE `company` = 304 AND `state` = 6 AND `dis_time` BETWEEN '2017-08-10 0:0:0' AND '2017-08-10 23:59:59' LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT SUM(end_w) AS tp_sum FROM `coal_bill` WHERE `company` = 304 AND `state` = 6 AND `dis_time` BETWEEN '2017-08-10 0:0:0' AND '2017-08-10 23:59:59' LIMIT 1   [ RunTime:0.0096s ]
+SQL: SHOW COLUMNS FROM `coal_logistics` [ RunTime:0.0129s ]
+SQL: SELECT SUM(res_quantity) AS tp_sum FROM `coal_logistics` WHERE `assigned_id` = 304 AND `state` = 1 LIMIT 1   [ RunTime:0.0051s ]
+SQL: SHOW COLUMNS FROM `coal_company` [ RunTime:0.0050s ]
+SQL: SELECT `auto_arrbill` FROM `coal_company` WHERE ( id = 304 ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `is_hide_index_order` FROM `coal_company` WHERE `id` = 304 LIMIT 1   [ RunTime:0.0002s ]
+ERR: 1305:FUNCTION mwt.ST_X does not exist
+ [ SQL语句 ] : select ST_X(add_gps) as x,ST_Y(add_gps) as y from coal_company WHERE (id=304)
+ERR: 1305:FUNCTION mwt.ST_X does not exist
+ [ SQL语句 ] : select ST_X(add_gps) as x,ST_Y(add_gps) as y from coal_company WHERE (id=304)
+
+[ 2017-08-10T15:17:27+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009783s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.013513s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.013561s ]
+
+[ 2017-08-10T15:17:27+08:00 ] 127.0.0.1 /Vip/Login/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000266s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000414s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000444s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000064s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000099s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.132727s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.132777s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.010119s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.010151s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.007398s ]
+INFO: [ app_end ] --END-- [ RunTime:0.007433s ]
+
+[ 2017-08-10T15:21:26+08:00 ] 127.0.0.1 /vip
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000228s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000297s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000332s ]
+
+[ 2017-08-10T15:21:27+08:00 ] 127.0.0.1 /Vip/Login/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000230s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000267s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000298s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000061s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000133s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025338s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025382s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000195s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000215s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000344s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000371s ]
+
+[ 2017-08-10T15:21:35+08:00 ] 127.0.0.1 /Vip/Login/doLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000795s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000655s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000705s ]
+SQL: SHOW COLUMNS FROM `coal_users` [ RunTime:0.0301s ]
+NOTIC: [2] Missing argument 2 for authcode(), called in C:\phpStudy\WWW\mwt2.0_web\Application\Vip\Controller\LoginController.class.php on line 22 and defined C:\phpStudy\WWW\mwt2.0_web\Application\Common\Common\function.php 第 13 行.
+NOTIC: [8] Undefined variable: key C:\phpStudy\WWW\mwt2.0_web\Application\Common\Common\function.php 第 14 行.
+SQL: SELECT * FROM `coal_users` WHERE ( (account = '13791842108' or phone = '13791842108') AND password = 'de13a23d04c96774e64e93ae78b2b8ad4ba8133c' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `coal_users` [ RunTime:0.0086s ]
+SQL: SELECT u.*,c.name as c_name,c.pid,c.is_passed as c_is_passed,g.title FROM coal_users u left join coal_company c on c.id = u.company_id left join coal_auth_group_access aga on aga.uid = u.id left join coal_auth_group g on g.id = aga.group_id  WHERE u.id = '587' LIMIT 1   [ RunTime:0.0143s ]
+SQL: UPDATE `coal_users` SET `login_time`='2017-08-10 15:21:35',`login_ip`='127.0.0.1' WHERE `id` = 587 [ RunTime:0.0031s ]
+NOTIC: [8] Undefined index: nickname C:\phpStudy\WWW\mwt2.0_web\Application\Vip\Controller\LoginController.class.php 第 74 行.
+SQL: SHOW COLUMNS FROM `coal_operate_log` [ RunTime:0.0173s ]
+SQL: INSERT INTO `coal_operate_log` (`user_id`,`company_id`,`type`,`remark`,`create_time`) VALUES ('587','304','0','809138成功登录企业版PC端','2017-08-10 15:21:35') [ RunTime:0.0030s ]
+
+[ 2017-08-10T15:21:36+08:00 ] 127.0.0.1 /Vip/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000239s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000304s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000336s ]
+SQL: SHOW COLUMNS FROM `coal_users` [ RunTime:0.0118s ]
+SQL: SELECT `default_set_menu` FROM `coal_users` WHERE `id` = 587 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `coal_company` [ RunTime:0.0082s ]
+SQL: SELECT `tender` FROM `coal_company` WHERE `id` = 304 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `coal_bill` [ RunTime:0.0242s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `coal_bill` WHERE `company` = 304 AND `state` = 6 AND `dis_time` BETWEEN '2017-08-01 0:0:0' AND '2017-08-10 23:59:59' LIMIT 1   [ RunTime:0.0505s ]
+SQL: SELECT SUM(end_w) AS tp_sum FROM `coal_bill` WHERE `company` = 304 AND `state` = 6 AND `dis_time` BETWEEN '2017-08-01 0:0:0' AND '2017-08-10 23:59:59' LIMIT 1   [ RunTime:0.0082s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `coal_bill` WHERE `company` = 304 AND `state` = 6 AND `dis_time` BETWEEN '2017-08-10 0:0:0' AND '2017-08-10 23:59:59' LIMIT 1   [ RunTime:0.0068s ]
+SQL: SELECT SUM(end_w) AS tp_sum FROM `coal_bill` WHERE `company` = 304 AND `state` = 6 AND `dis_time` BETWEEN '2017-08-10 0:0:0' AND '2017-08-10 23:59:59' LIMIT 1   [ RunTime:0.0074s ]
+SQL: SHOW COLUMNS FROM `coal_logistics` [ RunTime:0.0213s ]
+SQL: SELECT SUM(res_quantity) AS tp_sum FROM `coal_logistics` WHERE `assigned_id` = 304 AND `state` = 1 LIMIT 1   [ RunTime:0.0432s ]
+SQL: SHOW COLUMNS FROM `coal_company` [ RunTime:0.0051s ]
+SQL: SELECT `auto_arrbill` FROM `coal_company` WHERE ( id = 304 ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `is_hide_index_order` FROM `coal_company` WHERE `id` = 304 LIMIT 1   [ RunTime:0.0002s ]
+ERR: 1305:FUNCTION mwt.ST_X does not exist
+ [ SQL语句 ] : select ST_X(add_gps) as x,ST_Y(add_gps) as y from coal_company WHERE (id=304)
+ERR: 1305:FUNCTION mwt.ST_X does not exist
+ [ SQL语句 ] : select ST_X(add_gps) as x,ST_Y(add_gps) as y from coal_company WHERE (id=304)
+
+[ 2017-08-10T15:31:14+08:00 ] 127.0.0.1 /Vip/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000302s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000393s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000440s ]
+SQL: SHOW COLUMNS FROM `coal_users` [ RunTime:0.0200s ]
+SQL: SELECT `default_set_menu` FROM `coal_users` WHERE `id` = 587 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `coal_company` [ RunTime:0.0137s ]
+SQL: SELECT `tender` FROM `coal_company` WHERE `id` = 304 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `coal_bill` [ RunTime:0.0150s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `coal_bill` WHERE `company` = 304 AND `state` = 6 AND `dis_time` BETWEEN '2017-08-01 0:0:0' AND '2017-08-10 23:59:59' LIMIT 1   [ RunTime:0.0486s ]
+SQL: SELECT SUM(end_w) AS tp_sum FROM `coal_bill` WHERE `company` = 304 AND `state` = 6 AND `dis_time` BETWEEN '2017-08-01 0:0:0' AND '2017-08-10 23:59:59' LIMIT 1   [ RunTime:0.0077s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `coal_bill` WHERE `company` = 304 AND `state` = 6 AND `dis_time` BETWEEN '2017-08-10 0:0:0' AND '2017-08-10 23:59:59' LIMIT 1   [ RunTime:0.0068s ]
+SQL: SELECT SUM(end_w) AS tp_sum FROM `coal_bill` WHERE `company` = 304 AND `state` = 6 AND `dis_time` BETWEEN '2017-08-10 0:0:0' AND '2017-08-10 23:59:59' LIMIT 1   [ RunTime:0.0074s ]
+SQL: SHOW COLUMNS FROM `coal_logistics` [ RunTime:0.0125s ]
+SQL: SELECT SUM(res_quantity) AS tp_sum FROM `coal_logistics` WHERE `assigned_id` = 304 AND `state` = 1 LIMIT 1   [ RunTime:0.0324s ]
+SQL: SHOW COLUMNS FROM `coal_company` [ RunTime:0.0048s ]
+SQL: SELECT `auto_arrbill` FROM `coal_company` WHERE ( id = 304 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT `is_hide_index_order` FROM `coal_company` WHERE `id` = 304 LIMIT 1   [ RunTime:0.0001s ]
+ERR: 1305:FUNCTION mwt.ST_X does not exist
+ [ SQL语句 ] : select ST_X(add_gps) as x,ST_Y(add_gps) as y from coal_company WHERE (id=304)
+ERR: 1305:FUNCTION mwt.ST_X does not exist
+ [ SQL语句 ] : select ST_X(add_gps) as x,ST_Y(add_gps) as y from coal_company WHERE (id=304)
+
+[ 2017-08-10T15:32:50+08:00 ] 127.0.0.1 /Vip/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000229s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000371s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000406s ]
+SQL: SHOW COLUMNS FROM `coal_users` [ RunTime:0.0331s ]
+SQL: SELECT `default_set_menu` FROM `coal_users` WHERE `id` = 587 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `coal_company` [ RunTime:0.0125s ]
+SQL: SELECT `tender` FROM `coal_company` WHERE `id` = 304 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `coal_bill` [ RunTime:0.0097s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `coal_bill` WHERE `company` = 304 AND `state` = 6 AND `dis_time` BETWEEN '2017-08-01 0:0:0' AND '2017-08-10 23:59:59' LIMIT 1   [ RunTime:0.0103s ]
+SQL: SELECT SUM(end_w) AS tp_sum FROM `coal_bill` WHERE `company` = 304 AND `state` = 6 AND `dis_time` BETWEEN '2017-08-01 0:0:0' AND '2017-08-10 23:59:59' LIMIT 1   [ RunTime:0.0098s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `coal_bill` WHERE `company` = 304 AND `state` = 6 AND `dis_time` BETWEEN '2017-08-10 0:0:0' AND '2017-08-10 23:59:59' LIMIT 1   [ RunTime:0.0067s ]
+SQL: SELECT SUM(end_w) AS tp_sum FROM `coal_bill` WHERE `company` = 304 AND `state` = 6 AND `dis_time` BETWEEN '2017-08-10 0:0:0' AND '2017-08-10 23:59:59' LIMIT 1   [ RunTime:0.0073s ]
+SQL: SHOW COLUMNS FROM `coal_logistics` [ RunTime:0.0063s ]
+SQL: SELECT SUM(res_quantity) AS tp_sum FROM `coal_logistics` WHERE `assigned_id` = 304 AND `state` = 1 LIMIT 1   [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `coal_company` [ RunTime:0.0051s ]
+SQL: SELECT `auto_arrbill` FROM `coal_company` WHERE ( id = 304 ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `is_hide_index_order` FROM `coal_company` WHERE `id` = 304 LIMIT 1   [ RunTime:0.0002s ]
+ERR: 1305:FUNCTION mwt.ST_X does not exist
+ [ SQL语句 ] : select ST_X(add_gps) as x,ST_Y(add_gps) as y from coal_company WHERE (id=304)
+ERR: 1305:FUNCTION mwt.ST_X does not exist
+ [ SQL语句 ] : select ST_X(add_gps) as x,ST_Y(add_gps) as y from coal_company WHERE (id=304)
+
+[ 2017-08-10T15:33:39+08:00 ] 127.0.0.1 /Vip/Login/doLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000329s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000848s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000894s ]
+SQL: SHOW COLUMNS FROM `coal_users` [ RunTime:0.0230s ]
+NOTIC: [2] Missing argument 2 for authcode(), called in C:\phpStudy\WWW\mwt2.0_web\Application\Vip\Controller\LoginController.class.php on line 22 and defined C:\phpStudy\WWW\mwt2.0_web\Application\Common\Common\function.php 第 13 行.
+NOTIC: [8] Undefined variable: key C:\phpStudy\WWW\mwt2.0_web\Application\Common\Common\function.php 第 14 行.
+SQL: SELECT * FROM `coal_users` WHERE ( (account = '13791842108' or phone = '13791842108') AND password = 'de13a23d04c96774e64e93ae78b2b8ad4ba8133c' ) LIMIT 1   [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `coal_users` [ RunTime:0.0066s ]
+SQL: SELECT u.*,c.name as c_name,c.pid,c.is_passed as c_is_passed,g.title FROM coal_users u left join coal_company c on c.id = u.company_id left join coal_auth_group_access aga on aga.uid = u.id left join coal_auth_group g on g.id = aga.group_id  WHERE u.id = '587' LIMIT 1   [ RunTime:0.0053s ]
+SQL: UPDATE `coal_users` SET `login_time`='2017-08-10 15:33:39',`login_ip`='127.0.0.1' WHERE `id` = 587 [ RunTime:0.0031s ]
+NOTIC: [8] Undefined index: nickname C:\phpStudy\WWW\mwt2.0_web\Application\Vip\Controller\LoginController.class.php 第 74 行.
+SQL: SHOW COLUMNS FROM `coal_operate_log` [ RunTime:0.0121s ]
+SQL: INSERT INTO `coal_operate_log` (`user_id`,`company_id`,`type`,`remark`,`create_time`) VALUES ('587','304','0','809138成功登录企业版PC端','2017-08-10 15:33:39') [ RunTime:0.0025s ]
+
+[ 2017-08-10T15:33:41+08:00 ] 127.0.0.1 /Vip/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000241s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000279s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000306s ]
+SQL: SHOW COLUMNS FROM `coal_users` [ RunTime:0.0216s ]
+SQL: SELECT `default_set_menu` FROM `coal_users` WHERE `id` = 587 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `coal_company` [ RunTime:0.0143s ]
+SQL: SELECT `tender` FROM `coal_company` WHERE `id` = 304 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `coal_bill` [ RunTime:0.0083s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `coal_bill` WHERE `company` = 304 AND `state` = 6 AND `dis_time` BETWEEN '2017-08-01 0:0:0' AND '2017-08-10 23:59:59' LIMIT 1   [ RunTime:0.0098s ]
+SQL: SELECT SUM(end_w) AS tp_sum FROM `coal_bill` WHERE `company` = 304 AND `state` = 6 AND `dis_time` BETWEEN '2017-08-01 0:0:0' AND '2017-08-10 23:59:59' LIMIT 1   [ RunTime:0.0097s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `coal_bill` WHERE `company` = 304 AND `state` = 6 AND `dis_time` BETWEEN '2017-08-10 0:0:0' AND '2017-08-10 23:59:59' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT SUM(end_w) AS tp_sum FROM `coal_bill` WHERE `company` = 304 AND `state` = 6 AND `dis_time` BETWEEN '2017-08-10 0:0:0' AND '2017-08-10 23:59:59' LIMIT 1   [ RunTime:0.0071s ]
+SQL: SHOW COLUMNS FROM `coal_logistics` [ RunTime:0.0076s ]
+SQL: SELECT SUM(res_quantity) AS tp_sum FROM `coal_logistics` WHERE `assigned_id` = 304 AND `state` = 1 LIMIT 1   [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `coal_company` [ RunTime:0.0057s ]
+SQL: SELECT `auto_arrbill` FROM `coal_company` WHERE ( id = 304 ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `is_hide_index_order` FROM `coal_company` WHERE `id` = 304 LIMIT 1   [ RunTime:0.0002s ]
+ERR: 1305:FUNCTION mwt.ST_X does not exist
+ [ SQL语句 ] : select ST_X(add_gps) as x,ST_Y(add_gps) as y from coal_company WHERE (id=304)
+ERR: 1305:FUNCTION mwt.ST_X does not exist
+ [ SQL语句 ] : select ST_X(add_gps) as x,ST_Y(add_gps) as y from coal_company WHERE (id=304)
+

@@ -1,0 +1,35 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+a{text-decoration: none}
+li{
+    list-style: none;
+}
+table{
+    border:1px solid #ccc;
+    border-collapse: collapse;
+}
+tr,th,td{
+    border:1px solid #ccc;
+    text-align: center;
+}
+.prev,
+.next,
+.num,
+.first,
+.end,
+.current{
+    display: inline-block;
+    padding: 5px 10px;
+    margin-left: 5px;
+    border:1px solid black;
+    border-radius:5px;
+}
+.current {
+    background: #35b5d7;
+    color: red;
+}
+.red{
+    color:red;
+}

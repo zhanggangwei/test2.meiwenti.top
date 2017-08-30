@@ -1,0 +1,144 @@
+<div class="pageContent" style="top:0;bottom:0">
+    <form action="<{:U('Admin/News/addNews')}>" id="j_custom_form_add_news" data-toggle="validate" data-alertmsg="false"
+          method="post" style="max-width:850pt;height:100%;padding:20pt">
+        <div class="bjui-row">
+            <label class="row-label">新闻类型：</label>
+            <div class="row-input required">
+                <input type="radio" name="type" id="j_custom_type1" data-toggle="icheck" value="1"
+                       data-rule="checked" data-label="宏观资讯" checked>
+                <input type="radio" name="type" id="j_custom_type2" data-toggle="icheck" value="2"
+                       data-label="矿区资讯">
+                <input type="radio" name="type" id="j_custom_type3" data-toggle="icheck" value="3"
+                       data-label="轻松一刻">
+            </div>
+        </div>
+        <div class="bjui-row">
+            <label class="row-label">展示方式：</label>
+            <div class="row-input required">
+                <input type="radio" name="show_type" id="j_custom_stype1" data-toggle="icheck" value="1"
+                       data-rule="checked" data-label="图文排列" checked>
+                <input type="radio" name="show_type" id="j_custom_stype2" data-toggle="icheck" value="2"
+                       data-label="三张图片">
+                <input type="radio" name="show_type" id="j_custom_stype3" data-toggle="icheck" value="3"
+                       data-label="一张大图">
+                <input type="radio" name="show_type" id="j_custom_stype4" data-toggle="icheck" value="4"
+                       data-label="视频格式">
+            </div>
+        </div>
+        <div class="bjui-row">
+            <label class="row-label">新闻标题：</label>
+            <div class="row-input required">
+                <input type="text" name="title" value="" data-rule="required">
+            </div>
+        </div>
+        <div class="bjui-row">
+            <label class="row-label">文章来源：</label>
+            <div class="row-input required">
+                <input type="text" name="source" value="煤问题新闻部" data-rule="required">
+            </div>
+        </div>
+        <div class="bjui-row">
+            <label class="row-label">作者：</label>
+            <div class="row-input required">
+                <input type="text" name="writer" value="<{$_SESSION['sys_nickname']?$_SESSION['sys_nickname']:$_SESSION['sys_account']}>" data-rule="required">
+            </div>
+        </div>
+        <div class="bjui-row">
+            <label class="row-label">文章配图：</label>
+            <div class="row-input required">
+                <input type="file" data-name="pic[]" data-toggle="webuploader" data-options="
+            {
+                pick: {label: '点击选择图片'},
+                server: '<{:U('Api/Common/uploadImg')}>',
+                fileNumLimit: 3,
+                formData: {dir:'custompic'},
+                required: true,
+                uploaded: '',
+                basePath: '',
+                accept: {
+                    title: '图片',
+                    extensions: 'jpg,png',
+                    mimeTypes: '.jpg,.png'
+                }
+            }">
+                <span>展示方式为三张图片时，需上传三张图片，其他则上传第一张图片</span>
+            </div>
+        </div>
+        <div class="bjui-row">
+            <label class="row-label">文章视频地址：</label>
+            <div class="row-input">
+                <input type="file" data-name="video" data-toggle="webuploader" data-options="
+                {
+                    pick: {label: '点击选择视频'},
+                    server: '<{:U('Api/Common/uploadImg')}>',
+                    fileNumLimit: 1,
+                    formData: {dir:'custompic'},
+                    uploaded: '',
+                    basePath: '',
+                    accept: {
+                        title: '视频',
+                        extensions: 'mov,mp4',
+                        mimeTypes: '.mov,.mp4'
+                    }
+                }">
+            </div>
+        </div>
+        <div class="bjui-row">
+            <label class="row-label">已上传视频地址：</label>
+            <div class="row-input">
+                <input type="text" value="<{$info.video}>">
+            </div>
+        </div>
+        <div class="bjui-row">
+            <label class="row-label">文章摘要：</label>
+            <div class="row-input">
+                <textarea name="description" id=""></textarea><span>展示方式为图文展示时必填，字数不能超过100个</span>
+            </div>
+        </div>
+        <div class="bjui-row">
+            <label class="row-label">文章主体：<br><select name="is_html" id="news-add-is_html">
+                <option value="1">纯html</option>
+                <option value="0" selected="true">富文本编辑</option>
+            </select></label>
+            <div class="row-input">
+                <div class="col-sm-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-content no-padding">
+                            <textarea id="is_html_content" name="content1" style="resize: none;width: 600px;height:700px;display: none"></textarea>
+                            <script id="editor" name="content" type="text/plain"></script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr style="margin:5px 0 15px;">
+        <div class="text-center">
+            <button type="submit" class="btn-default btn">提交</button>
+        </div>
+    </form>
+</div>
+<!--百度编辑器-->
+<script type="text/javascript" charset="utf-8" src="__HPLUS__/js/plugins/UEditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__HPLUS__/js/plugins/UEditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="__HPLUS__/js/plugins/UEditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript">
+    var ue = '';
+    ue = UE.getEditor('editor');
+</script>
+<script>
+    var win_h = $(window).height();
+    $('#j_custom_form_add_news').css({'height':win_h - 140, 'overflow-y':'auto'});
+
+    // 选择纯html还是富文本的编辑模式
+    $('#news-add-is_html').change(function(){
+        var v = $(this).val();
+        if (v == 1) {
+            $('#is_html_content').show();
+            $('#editor').hide();
+        } else {
+            $('#is_html_content').hide();
+            $('#editor').show();
+        }
+    });
+
+</script>

@@ -1,0 +1,32 @@
+<script>
+    var dataurl="<{:U('Admin/CoalType/getCoalTypeList')}>";
+</script>
+<div class="pageContent" style="position:absolute;top:10pt;bottom: 0pt">
+    <button type="button" class="btn btn-default" data-toggle="dialog" data-options="{id:'add_coal_type', url:'<{:U('Admin/CoalType/coalTypeAdd')}>', title:'添加煤种'}">添加煤种</button>
+    <table class="table table-bordered" data-toggle="datagrid" data-options="{
+        height:'96%',
+        gridTitle: '煤种列表',
+		 showLinenumber:false,
+        dataUrl: dataurl,
+        fieldSortable:false,
+        filterMult:false,
+        columnMenu:false,
+        local:'remote',
+        filterThead:false,
+        paging:{pageSize:30}
+	}" id="datagrid-apply-t-filter">
+        <thead>
+        <tr>
+            <th data-options="{name:'id',align:'center',width:50}">ID</th>
+            <th data-options="{name:'name',align:'center',width:100}">煤种名字</th>
+            <th data-options="{name:'dostr',align:'center',width:150}">操作</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+<script>
+    var win_h = $(window).height();
+//    $('#datagrid-company-truck-filter').css({'height':win_h - 140, 'overflow-y':'scroll'});
+    var win_w = $('.tabsPageHeader').width();
+    $('.pageContent').css({'width':win_w - 40, 'overflow-x':'scroll'});
+</script>

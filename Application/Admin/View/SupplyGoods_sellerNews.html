@@ -1,0 +1,40 @@
+<script>
+    var dataurl="<{:U('Admin/SupplyGoods/getSellerNews')}>";
+</script>
+
+<div class="pageContent" style="position:absolute;top:10pt;bottom: 40pt;width: 100%">
+    <table class="table table-bordered" data-toggle="datagrid" data-options="{
+        height:'100%',
+        gridTitle: '供货信息',
+        showLinenumber:false,
+        dataUrl: dataurl,
+        fieldSortable:false,
+        filterMult:false,
+        columnMenu:false,
+        local:'remote',
+        filterThead:false,
+        paging:{pageSize:10},
+        width:'100%'
+    }" id="datagrid-seller-news-filter">
+        <thead>
+        <tr>
+            <th data-options="{name:'id',align:'center'}" style="min-width:50px">id</th>
+            <th data-options="{name:'title',align:'center'}" style="min-width:110px">标题</th>
+            <th data-options="{name:'coal_type',align:'center'}" style="min-width:110px">煤炭种类</th>
+            <th data-options="{name:'buy_address',align:'center'}" style="min-width:110px">交货地</th>
+            <th data-options="{name:'sell_address',align:'center'}" style="min-width:110px">产地</th>
+            <th data-options="{name:'comment',align:'center'}" style="min-width:110px">备注</th>
+            <th data-options="{name:'click',align:'center'}" style="min-width:110px">浏览量</th>
+            <th data-options="{name:'dostr',align:'center'}" style="min-width:100px">操作</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+<script>
+//    var win_h = $(window).height();
+//        $('#datagrid-seller-news-filter').css({'height':win_h - 140, 'overflow-y':'scroll'});
+//    var win_w = $('.tabsPageHeader').width();
+//    $('.pageContent').css({'width':win_w - 40, 'overflow-x':'scroll'});
+
+
+</script>

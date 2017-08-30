@@ -1,0 +1,34 @@
+<div class="pageHeader">
+
+</div>
+
+<div class="pageContent">
+	<form action="index.html" data-toggle="ajaxform">
+		<h5>登录框</h5>
+		<div class="bjui-row col-2">
+			<label class="row-label">用户名</label>
+			<div class="row-input">
+				<input type="text" name="username" data-rule="required">
+			</div>
+			<label class="row-label">密码</label>
+			<div class="row-input">
+				<input type="password" name="password" data-rule="required">
+			</div>
+		</div>
+		<hr style="margin:5px 0 15px;">
+		<div class="text-center">
+			<button type="submit" class="btn-default" data-toggle="alertmsg" data-options="{
+				type:'ok', 
+				msg:'登录成功',
+				displayPosition:'middlecenter',
+				okCall:function(){
+					BJUI.dialog('closeCurrent');
+				}
+				}">登录</button>
+		</div>
+	</form>
+</div>
+
+<div class="pageFooter">
+	
+</div>

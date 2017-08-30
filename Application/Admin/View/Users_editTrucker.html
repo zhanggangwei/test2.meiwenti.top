@@ -1,0 +1,76 @@
+<div class="pageContent" >
+    <form action="<{:U('Admin/Users/editTrucker')}>" id="j_custom_form_edit_driver" data-toggle="validate" data-alertmsg="false" method="post">
+        <div style="padding: 30pt 0">
+            <div class="bjui-row">
+                <!-- 行驶证id -->
+                <input type="hidden" name="id" value="<{$info.id}>">
+                <label class="row-label">驾驶证图片：</label>
+                <div class="row-input required">
+                    <input type="file" data-name="lic_pic" data-toggle="webuploader" data-options="
+                    {
+                        pick: {label: '点击选择图片'},
+                        server: '<{:U('Api/Common/uploadImg')}>',
+                        fileNumLimit: 1,
+                        formData: {dir:'custompic'},
+                        required: true,
+                        uploaded: '<{$info.lic_pic|getTrueImgSrc}>',
+                        basePath: '',
+                        accept: {
+                            title: '图片',
+                            extensions: 'jpg,png',
+                            mimeTypes: '.jpg,.png'
+                        }
+                    }">
+                </div>
+                <label class="row-label">驾驶证号：</label>
+                <div class="row-input">
+                    <input type="text" name="lic_number" value="<{$info.lic_number}>">
+                </div>
+                <label class="row-label">驾照过期时间：</label>
+                <div class="row-input">
+                    <input type="text" name="lic_endtime" value="<{$info.lic_endtime}>" data-toggle="datepicker">
+                </div>
+                <label class="row-label">驾照级别：</label>
+                <div class="row-input">
+                    <input type="text" name="lic_level" value="<{$info.lic_level}>"><span>可以填A、B、C</span>
+                    <!-- <php>$lic_level_arr = array('A', 'B', 'C');</php> -->
+                    <!-- <select name="lic_level">
+                        <empty name="lic_level">
+                            <option value="">没有选择</option>
+                        <else/>
+                        <foreach name="lic_level_arr" item="vo">
+                            <option value="<{$vo}>" <if condition="$vo eq $info['lic_level']">selected</if>><{$vo}></option>
+                        </foreach>
+                        </empty>
+                    </select> -->
+                </div>
+                <label class="row-label">准驾车型：</label>
+                <div class="row-input">
+                    <input type="text" name="all_drive" value="<{$info.all_drive}>">
+                </div>
+                <label class="row-label">工作时间：</label>
+                <div class="row-input">
+                    <php>$work_time_arr = array('1' => '全天', '2' => '白班', '3' => '晚班');</php>
+                    <select name="work_time">
+                        <foreach name="work_time_arr" key="key" item="vo">
+                            <option value="<{$key}>" <if condition="$key eq $info['work_time']">selected</if>><{$vo}></option>
+                        </foreach>
+                    </select>
+                </div>
+                <label class="row-label">正常休息：</label>
+                <div class="row-input">
+                    <php>$is_work_arr = array('0' => '休息', '1' => '正常');</php>
+                    <select name="is_work">
+                        <foreach name="is_work_arr" key="key" item="vo">
+                            <option value="<{$key}>" <if condition="$key eq $info['is_work']">selected</if>><{$vo}></option>
+                        </foreach>
+                    </select>
+                </div>
+                <hr style="margin:5px 0 15px;">
+                <div class="text-center">
+                    <button type="submit" class=" btn-sm">修改</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

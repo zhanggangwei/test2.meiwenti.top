@@ -1,0 +1,54 @@
+<script>
+    var dataurl="<{:U('Admin/YitaiBill/getBillList')}>";
+</script>
+<div class="bjui-pageHeader" style="background-color:#fefefe; border-bottom:none;">
+    <form action="" data-toggle="ajaxsearch" data-options="{searchDatagrid:$.CurrentNavtab.find('#datagrid-all-truck-filter')}" id="all-truck-form">
+        <fieldset>
+            <div style="margin:0; padding:1px 5px 5px;">
+                <!--<span>账号：</span>-->
+                <!--<input type="text" name="account" size="15">-->
+                <!--<span>姓名：</span>-->
+                <!--<input type="text" name="name" size="15">-->
+                <!--<span>手机：</span>-->
+                <!--<input type="text" name="phone" size="15">-->
+                <span>车牌号：</span>
+                <input type="text" name="lic_number" size="15">
+                <div class="btn-group">
+                    <button type="submit" class="btn-green" data-icon="search">开始搜索！</button>
+                    <button type="reset" class="btn-orange" data-icon="times">重置</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<div class="pageContent" style="position:absolute;top:40pt;bottom: 10pt;width: 100%">
+    <!--<a href="<{:U('Admin/Truck/normal')}>" data-toggle="navtab" data-options="{id:'truck_normal'}">车辆运行状态</a>-->
+    <table class="table table-bordered" data-toggle="datagrid" data-options="{
+        height:'100%',
+        width:'100%',
+        gridTitle: '伊泰订单列表',
+		showLinenumber:false,
+        dataUrl: dataurl,
+        fieldSortable:false,
+        filterMult:false,
+        columnMenu:false,
+        local:'remote',
+        filterThead:false,
+        paging:{pageSize:10}
+	}" id="datagrid-all-truck-filter">
+        <thead>
+        <tr>
+            <th data-options="{name:'id',align:'center'}">ID</th>
+            <th data-options="{name:'dis_time',align:'center'}">派单时间</th>
+            <th data-options="{name:'bill_number',align:'center'}">提煤单号</th>
+            <th data-options="{name:'is_zibei',align:'center'}">是否自备</th>
+            <th data-options="{name:'money',align:'center'}">运费</th>
+            <th data-options="{name:'money',align:'center'}">运费</th>
+            <th data-options="{name:'dostr',align:'center'}">操作</th>
+        </tr>
+        </thead>
+    </table>
+
+</div>
+<script>
+</script>

@@ -1,0 +1,60 @@
+<div class="pageContent">
+	<form action="<{:U('Admin/Industry/addShip')}>" id="j_custom_form" data-toggle="validate" data-alertmsg="false" method="post">
+        <div style="margin: 0 auto;max-width:500pt;float: left;padding: 30pt">
+            <div class="bjui-row">
+                <label class="row-label">起始地：</label>
+                <div class="row-input required">
+                    <input type="text" name="from" value="" data-rule="required">
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">结束地：</label>
+                <div class="row-input required">
+                    <input type="text" name="to" value="" data-rule="required">
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">港口图片：</label>
+                <div class="row-input required">
+                    <input type="file" data-name="picture" data-toggle="webuploader" data-options="
+                {
+                    pick: {label: '点击选择图片'},
+                    server: '<{:U('Api/Common/uploadImg')}>',
+                    fileNumLimit: 1,
+                    formData: {dir:'custompic'},
+                    required: true,
+                    uploaded: '',
+                    basePath: '',
+                    accept: {
+                        title: '图片',
+                        extensions: 'jpg,png',
+                        mimeTypes: '.jpg,.png'
+                    }
+                }">
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">船型：</label>
+                <div class="row-input required">
+                    <input type="text" name="ship" value="" data-rule="required"><span>例如:3-4万吨</span>
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">运费：</label>
+                <div class="row-input required">
+                    <input type="text" name="price" value="" data-rule="required"><span>元/吨</span>
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">变化：</label>
+                <div class="row-input required">
+                    <input type="text" name="in_out" value="" data-rule="required"><span>元/吨</span>
+                </div>
+            </div>
+            <hr style="margin:5px 0 15px;">
+            <div class="text-center">
+                <button type="submit" class="btn-default btn">提交</button>
+            </div>
+        </div>
+    </form>
+</div>

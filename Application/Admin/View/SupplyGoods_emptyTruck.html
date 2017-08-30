@@ -1,0 +1,60 @@
+<script>
+    var dataurl="<{:U('Admin/SupplyGoods/getEmptyTruck')}>";
+</script>
+<!--<div class="bjui-pageHeader" style="background-color:#fefefe; border-bottom:none;">-->
+    <!--<form action="" data-toggle="ajaxsearch" data-options="{searchDatagrid:$.CurrentNavtab.find('#datagrid-seller-news-filter')}" id="seller-news-form">-->
+        <!--<fieldset>-->
+            <!--<legend style="font-weight:normal;">页头搜索：</legend>-->
+            <!--<div style="margin:0; padding:1px 5px 5px;">-->
+                <!--<span>车牌号：</span>-->
+                <!--<input type="text" name="lic_number" class="form-control" size="15">-->
+
+                <!--&lt;!&ndash;<span>手机：</span>&ndash;&gt;-->
+                <!--&lt;!&ndash;<input type="text" name="phone" class="form-control" size="15">&ndash;&gt;-->
+
+                <!--<div class="btn-group">-->
+                    <!--<button type="submit" class="btn-green" data-icon="search">开始搜索！</button>-->
+                    <!--<button type="reset" class="btn-orange" data-icon="times">重置</button>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</fieldset>-->
+    <!--</form>-->
+<!--</div>-->
+
+<div class="pageContent" style="position:absolute;top:10pt;bottom: 40pt">
+    <table class="table table-bordered" data-toggle="datagrid" data-options="{
+        gridTitle: '待放空货源信息',
+         showLinenumber:false,
+        dataUrl: dataurl,
+        fieldSortable:false,
+        filterMult:false,
+        columnMenu:false,
+        local:'remote',
+        filterThead:false,
+        paging:{pageSize:10},
+        width:'100%'
+    }" id="datagrid-logistics-goods-filter">
+        <thead>
+        <tr>
+            <th data-options="{name:'id',align:'center'}" style="min-width:50px">id</th>
+            <th data-options="{name:'coal_type',align:'center'}" style="min-width:110px">煤炭种类</th>
+            <th data-options="{name:'price',align:'center'}" style="min-width:110px">运费（元）</th>
+            <th data-options="{name:'quantity',align:'center'}" style="min-width:110px">重量（吨）</th>
+            <th data-options="{name:'sell_address',align:'center'}" style="min-width:110px">出发地</th>
+            <th data-options="{name:'buy_address',align:'center'}" style="min-width:110px">到达地</th>
+            <th data-options="{name:'tip',align:'center'}" style="min-width:130px">交费</th>
+            <th data-options="{name:'comment',align:'center'}" style="min-width:110px">备注</th>
+            <th data-options="{name:'state',align:'center'}" style="min-width:110px">状态</th>
+            <th data-options="{name:'dostr',align:'center'}" style="min-width:100px">操作</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+<script>
+    var win_h = $(window).height();
+        $('#datagrid-seller-news-filter').css({'height':win_h - 140, 'overflow-y':'scroll'});
+    var win_w = $('.tabsPageHeader').width();
+    $('.pageContent').css({'width':win_w - 40, 'overflow-x':'scroll'});
+
+
+</script>

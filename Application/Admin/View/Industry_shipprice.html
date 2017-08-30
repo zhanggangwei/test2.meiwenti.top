@@ -1,0 +1,36 @@
+<script>
+    var dataurl="<{:U('Admin/Industry/getShip')}>";
+</script>
+
+<div class="pageContent" style="position:absolute;top:0;bottom: 10pt;width:100%;">
+    <button type="button" class="btn btn-default" data-toggle="dialog" data-options="{id:'shipprice', url:'<{:U('Admin/Industry/addShip')}>', title:'添加海运价格',height:700}">添加海运价格</button>
+    <button type="button" class="btn btn-default" data-toggle="doajax" data-options="{url:'<{:U('Admin/Industry/collectShipprice')}>', title:'采集海运数据'}">采集海运数据</button>
+    <table class="table table-bordered" data-toggle="datagrid" data-options="{
+        height:'97%',
+        width:'100%',
+        gridTitle: '海运价格',
+		 showLinenumber:false,
+        dataUrl: dataurl,
+        fieldSortable:false,
+        filterMult:false,
+        columnMenu:false,
+        local:'remote',
+        filterThead:false,
+        paging:{pageSize:10}
+	}" id="ship-price-filter">
+        <thead>
+        <tr>
+            <th data-options="{name:'id',align:'center'}" style="width: 5%">ID</th>
+            <th data-options="{name:'from',align:'center'}" style="width: 15%">起始地</th>
+            <th data-options="{name:'to',align:'center'}" style="width: 15%">终点</th>
+            <th data-options="{name:'update_time',align:'center'}" style="width: 15%">更新日期</th>
+            <th data-options="{name:'ship',align:'center'}" style="width: 15%">船型</th>
+            <th data-options="{name:'price',align:'center'}" style="width: 15%">运费</th>
+            <th data-options="{name:'in_out',align:'center'}" style="width: 15%">变化</th>
+            <th data-options="{name:'sort',align:'center'}" style="width: 5%">排序</th>
+            <th data-options="{name:'dostr',align:'center'}" style="width: 10%">操作</th>
+        </tr>
+        </thead>
+    </table>
+
+</div>

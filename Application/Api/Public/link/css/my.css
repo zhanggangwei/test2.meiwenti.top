@@ -1,0 +1,75 @@
+/* CSS Document */
+@font-face {
+  font-family: 'iconfont';
+  src: url('//at.alicdn.com/t/font_1473130511_3358488.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_1473130511_3358488.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/font_1473130511_3358488.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/font_1473130511_3358488.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_1473130511_3358488.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+                    
+                                       
+                    
+.my-title{
+		font-family:"微软雅黑";
+		font-size:1.1rem;}                  
+.content-p{
+	padding:0 1rem;
+	text-indent:2em;
+	font-family:"Helvetica Neue",Helvetica,sans-serif;}
+.detail p{
+	padding:0 0.1rem;
+	text-indent:1em;
+	font-family:"Helvetica Neue",Helvetica,sans-serif;}
+.index-tab{
+	height:3rem;}
+.button-blue{
+	border:none;
+	border-radius:0.3em;
+	height:2.5rem;
+	background:-webkit-gradient(linear, left top, left bottom, from(#269c3a), to(#269c3a) );
+	background:-moz-linear-gradient(-90deg, #269c3a, #269c3a);
+	filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#269c3a', endColorstr='#269c3a');}
+.index-button{
+	font-family:"微软雅黑";
+	color:#fff;
+	font-size:1.2rem;
+	display:inline-block;
+	font-weight:100;
+	line-height:2.5rem;
+	border-radius:0.3em;}
+.xiangmu{
+	text-align:center;}
+.postform input[type=file]{
+	position:relative;
+	height:4rem;
+	z-index:100;
+	filter:alpha(opacity=0); /*IE滤镜，透明度50%*/
+	-moz-opacity:0; /*Firefox私有，透明度50%*/
+	opacity:0;/*其他，透明度50%*/}
+.file_li{
+	height:4.5rem;
+	overflow:hidden;}
+.postform .show_img{
+	display:inline-block;
+	display:none;
+	position:relative;
+	height:4rem;
+	top:-4rem;
+	}
+.postform .file_div{
+	text-align:center;}
+/******icon********/
+.icon_upload{
+	text-align:center;
+	position:relative;
+	display:inline-block;
+	border:#a5f5d8 solid 1px;
+	top:-4rem;
+	z-index:0;
+	}
+.icon_upload:before{
+	color:#a5f5d8;
+	font-family:iconfont;
+	content:"\e609";
+	font-size:2.5rem;}

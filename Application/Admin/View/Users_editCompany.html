@@ -1,0 +1,263 @@
+
+<div class="pageContent" >
+    <form action="<{:U('Admin/Users/editCompany')}>" id="j_custom_form_edit_company" data-toggle="validate" data-alertmsg="false" method="post">
+        <div style="padding: 30pt 0">
+            <div class="bjui-row">
+                <input type="hidden" value="<{$info.id}>" name="id"/>
+                <if condition="$info['company_id'] gt 0">
+                    <!-- 如果有总公司，显示出来 -->
+                    <label class="row-label">总公司：<{$info['company_id']}></label>
+                    <div class="row-input">
+                        <input type="text" name="name" value="<{$info.pid|getCompanyName}>">
+                    </div>
+                </if>
+                <label class="row-label">公司名：</label>
+                <div class="row-input">
+                    <input type="text" name="name" value="<{$info.name}>">
+                </div>
+                <label class="row-label">证件类型：</label>
+                <div class="row-input">
+                    <if condition="$info['is_vip'] eq 1">企业认证<else/>个人认证</if>
+                </div>
+                <label class="row-label">公司营业执照图片：</label>
+                <div class="row-input required">
+                    <input type="file" data-name="lic_pic" data-toggle="webuploader" data-options="
+                    {
+                        pick: {label: '点击选择图片'},
+                        server: '<{:U('Api/Common/uploadImg')}>',
+                        fileNumLimit: 1,
+                        formData: {dir:'custompic'},
+                        required: true,
+                        uploaded: '<{$info.lic_pic|getTrueImgSrc}>',
+                        basePath: '',
+                        accept: {
+                            title: '图片',
+                            extensions: 'jpg,png',
+                            mimeTypes: '.jpg,.png'
+                        }
+                    }">
+                </div>
+                <label class="row-label">公司执照号：</label>
+                <div class="row-input">
+                    <input type="text" name="lic_number" value="<{$info.lic_number}>">
+                </div>
+                <label class="row-label">自动派单：</label>
+                <div class="row-input">
+                    <php>$arr1 = array(0,1)</php>
+                    <select name="auto_arrbill" id="auto_arrbill1">
+                        <volist name="arr1" id="vo">
+                            <option value="<{$vo}>" <if condition="$vo eq $info['auto_arrbill']">selected</if>><{$vo?'是':'否'}></option>
+                        </volist>
+                    </select>
+                </div>
+                <label class="row-label">招标量：</label>
+                <div class="row-input">
+                    <input type="text" name="tender" value="<{$info.tender}>">
+                </div>
+                <label class="row-label">今日产能：</label>
+                <div class="row-input">
+                    <input type="text" name="capacity" value="<{$info.capacity}>">
+                </div>
+                <label class="row-label">是否生产：</label>
+                <div class="row-input">
+                    <php>$arr = array(0,1)</php>
+                    <select name="is_produce" id="is_produce1">
+                        <volist name="arr" id="vo">
+                            <option value="<{$vo}>" <if condition="$vo eq $info['is_produce']">selected</if>><{$vo?'是':'否'}></option>
+                        </volist>
+                    </select>
+                </div>
+                <label class="row-label">地址：</label>
+                <div class="row-input">
+                    <select class="form-control m-b" id="address_p" name="province">
+                        <foreach name='province' item='vo'>
+                            <if condition="$vo eq $info['province']">
+                                <option value="<{$vo}>" selected><{$vo}></option>
+                                <else/>
+                                <option value="<{$vo}>" ><{$vo}></option>
+                            </if>
+                        </foreach>
+                    </select>
+                    <select class="form-control m-b" id="address_s" style="display:block;" name="city">
+                        <foreach name='cities' item='vo'>
+                            <if condition="$vo eq $info['city']">
+                                <option value="<{$vo}>" selected><{$vo}></option>
+                                <else/>
+                                <option value="<{$vo}>" ><{$vo}></option>
+                            </if>
+                        </foreach>
+                    </select>
+                    <select class="form-control m-b" id="address_q" style="display:block;" name="area">
+                        <foreach name='area' item='vo'>
+                            <if condition="$vo eq $info['area']">
+                                <option value="<{$vo}>" selected><{$vo}></option>
+                                <else/>
+                                <option value="<{$vo}>" ><{$vo}></option>
+                            </if>
+                        </foreach>
+                    </select>
+                    <input type="text" value="<{$info.detail}>" class="form-control m-b" style="display:block;" id="address_d" name="detail" placeholder="详细地址"/>
+                </div>
+                <label class="row-label">地图定位：</label>
+                <div class="row-input">
+                    <input id="gps" type="hidden" name="gps" value="<if condition="$info['gps']['x']"><{$info.gps.x}>,<{$info.gps.y}></if>"/>
+                    <input id="address" style="display: none" class="col-sm-5 form-control" value="" name="address"/>
+                    <div class="hr-line-dashed"></div>
+                    <div id="message" style="font-size:90%; color:#900;"></div>
+                    <div id="container"  class="form-control" style="height:300px;" tabindex="0"></div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-4 col-sm-offset-2">
+                        <button class="btn btn-primary" type="submit">保存内容</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- 高德地图 -->
+
+<script language="JavaScript">
+
+    var gps_x=" <?php  echo  $info['add_gps']['x'] ?>";
+    var gps_y=" <?php  echo  $info['add_gps']['y'] ?>";
+
+    console.log(gps_x);
+    console.log(gps_y);
+    var map = new AMap.Map('container',{
+        resizeEnable: true,
+        zoom: 13,
+        center: [gps_x,gps_y]
+    });
+
+    var gps = document.getElementById('gps');
+    var searchinput = document.getElementById('address');
+
+    AMap.plugin('AMap.Geocoder',function(){
+        var geocoder = new AMap.Geocoder({
+            city: "0"//城市，默认：“全国”
+        });
+        var marker = new AMap.Marker({
+            map:map,
+            bubble:true
+        })
+        //编辑页面，初始加载地理位置
+        var gpsnum=[gps_x,gps_y];
+
+        geocoder.getAddress(gpsnum,function(status,result){
+            marker.setPosition(gpsnum);
+            if(status=='complete'){
+                searchinput.value = result.regeocode.formattedAddress
+                document.getElementById('message').innerHTML  = ''
+            }else{
+                document.getElementById('message').innerHTML  = '无法获取地址'
+            }
+        })
+
+        //点击地图事件
+        map.on('click',function(e){
+            marker.setPosition(e.lnglat);
+            gps.value=e.lnglat;
+            geocoder.getAddress(e.lnglat,function(status,result){
+                if(status=='complete'){
+                    searchinput.value = result.regeocode.formattedAddress
+                    document.getElementById('message').innerHTML  = ''
+                }else{
+                    document.getElementById('message').innerHTML  = '无法获取地址'
+                }
+            })
+        })
+
+        //输入框定位事件
+        searchinput.onchange = function(e){
+            var address = searchinput.value;
+            geocoder.getLocation(address,function(status,result){
+                if(status=='complete'&&result.geocodes.length){
+                    marker.setPosition(result.geocodes[0].location);
+                    map.setCenter(marker.getPosition());
+                    document.getElementById('message').innerHTML = '';
+                    gps.value=marker.getPosition();
+                }else{
+                    document.getElementById('message').innerHTML = '自动定位失败，请更换地址输入，或者手动选择'
+                }
+            })
+        }
+
+    });
+</script>
+<script>
+    var address='';
+    $(document).ready(function(){
+        //获取市区列表
+        $('#address_p').change(function(){
+            $.post(
+                "<{:U('Api/Add/getShiqu')}>",
+                {province:$('#address_p').val()},
+                function(data){
+                    shiqu=jQuery.parseJSON(data);
+                    var html='';
+                    var shiqu = shiqu.data;
+                    //循环处理
+                    $.each(shiqu,function(index,value){
+                        html=html+"<option value='"+value+"'>"+value+"</option>";
+                    })
+
+                    //地图定位
+                    address=$("#address_p").val();
+                    searchinput = document.getElementById('address');
+                    searchinput.value=address;
+                    searchinput.onchange();
+
+                    $("#address_q").val('');
+                    $("#address_d").val('');
+                    $("#address_s").empty().append(html).show();
+                }
+            );
+        })
+        //获取地区列表
+        $("#address_s").change(function(){
+            $.post(
+                "<{:U('Api/Add/getDiqu')}>",
+                {
+                    province:$('#address_p').val(),
+                    shiqu:$("#address_s").val()
+                },
+                function(data){
+                    shiqu=jQuery.parseJSON(data);
+                    var html='';
+                    var shiqu = shiqu.data;
+                    //循环处理
+                    $.each(shiqu,function(index,value){
+                        html=html+"<option value='"+value+"'>"+value+"</option>";
+                    })
+                    //地图定位
+                    address=$("#address_p").val()+$("#address_s").val();
+                    searchinput = document.getElementById('address');
+                    searchinput.value=address;
+                    searchinput.onchange();
+
+                    $("#address_d").val('');
+                    $("#address_q").empty().append(html).show();
+                }
+            );
+        })
+        //显示详细地址输入框
+        $("#address_q").change(function(){
+            //地图定位
+            address=$("#address_p").val()+$("#address_s").val()+$("#address_q").val();
+            searchinput = document.getElementById('address');
+            searchinput.value=address;
+            searchinput.onchange();
+
+            $("#address_d").show();
+        })
+        //详细地址修改相应处理
+        $("#address_d").change(function(){
+            //地图定位
+            address=$("#address_p").val()+$("#address_s").val()+$("#address_q").val()+$("#address_d").val();
+            searchinput = document.getElementById('address');
+            searchinput.value=address;
+            searchinput.onchange();
+        })
+    });
+</script>

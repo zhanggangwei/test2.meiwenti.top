@@ -1,0 +1,76 @@
+@charset "utf-8";
+
+*{margin:0; padding:0;}
+.wrapper{width:100%; max-width:1280px; margin:0 auto;}
+body{background:url(../img/bg.png) no-repeat; min-width:1000px; background-size:100%; font-family:"microsoft yahei";}
+
+.header{background:#fff; min-width:1366px; position:fixed; left:0; top:0; padding:13px 0 8px 0; width:100%;}
+.header .logo{float:left; margin-left:10%; width:15%;}
+.header .logo img{max-width:100%;}
+
+.download-app{width:200px; position:absolute; left:30%; top:0;}
+.download-app p{width:200px; height:220px; color:#fff; margin-top:30px; background:rgba(0,0,0,0.3); line-height:40px; font-size:18px; padding:0 10px;}
+.download-app p strong{font-size:26px; padding-top:20px; display:block; text-align:center;}
+.download-app .qr{width:220px; height:220px; background:#fff; text-align:center;}
+.download-app .qr img{max-width:90%; margin-top:5%;}
+
+.main{position:relative;}
+.main .wrapper{position:relative; height:100%;}
+.content{position:absolute; right:15%; top:50%; margin-top:-260px; width:100%; height:520px;}
+.login-box{width:440px; height:520px; position:absolute; right:100px; top:0; background:#fff; box-shadow:0 0 5px #ccc;}
+.login-box .title{height:84px; line-height:84px; margin-bottom:10px; text-align:center; font-size:26px; font-weight:normal; color:#666; letter-spacing:15px;}
+.login-box .user,
+.login-box .password,
+.login-box .captcha{height:80px; padding:0 50px; position:relative;}
+.login-box .user.error:before,
+.login-box .password.error:before,
+.login-box .captcha.error:before{content:"!"; position:absolute; left:55px; top:55px; width:20px; text-align:center; line-height:20px; color:#fff; height:20px; border-radius:10px; background:#ff7e7e;}
+.login-box .user.error:after,
+.login-box .password.error:after,
+.login-box .captcha.error:after{position:absolute; font-size:13px; left:80px; top:55px; color:#ff7e7e; line-height:20px;}
+.login-box .user.error:after{content:"请输入账号";}
+.login-box .password.error:after{content:"请输入密码";}
+.login-box .captcha.error:after{content:"请输入验证码";}
+
+.login-box .user.error.false:after{content:"请输入正确的账号";}
+.login-box .password.error.false:after{content:"密码不正确";}
+.login-box .captcha.error.false:after{content:"验证码不正确";}
+.login-box .password.error.length:after{content:"密码长度不小于6位";}
+
+.login-box .error input{border-color:#ff7e7e;}
+
+.login-box div input{width:308px; border:1px solid #ddd; padding:0 15px; background:#fff; font-size:18px; color:#333; border-radius:4px; height:48px;}
+.login-box .captcha input{width:168px; border-radius:4px 0 0 4px;}
+.login-box .captcha-img{float:right; width:140px; height:50px; background:#ddd; border-radius:0 4px 4px 0;}
+.login-box .captcha-img img{width:100%; height:100%; border:none;}
+.login-box .login-btn{width:340px; margin-left:50px; margin-top:26px; transition:background 0.3s; border:none; height:50px; border-radius:4px; background:#1b57cc; font-size:22px; color:#fff; letter-spacing:10px; cursor:pointer;}
+.login-box .login-btn:hover{background:#3978f2;}
+.login-box .copy-right{margin-top:60px; color:#333; text-align:center;}
+.login-box .copy-right span{color:#1b57cc;}
+.login-box .clear{width:24px; height:24px; border-radius:15px; cursor:pointer; text-align:center; line-height:20px; font-size:22px; color:#fff; position:absolute; background:#e5e5e5; right:60px; top:14px;}
+.login-box .clear:hover{background:#ccc;}
+input:focus{box-shadow:0 0 6px -2px #3978f2; border-color:#6f9cf2!important;}
+
+@media(max-width:1440px){
+    .content{right:10%;}
+    .login-box .title{height:60px; line-height:60px; font-size:22px;}
+    .login-box{width:340px; height:400px; right:50px;}
+    .login-box .user,
+    .login-box .password,
+    .login-box .captcha{padding:0 30px; height:70px;}
+    .login-box .clear{right:35px; top:9px;}
+    .login-box .error:after,.login-box .error:before{top:45px!important; font-size:14px!important; left:30px!important;}
+    .login-box .error:after{left:55px!important;}
+    .login-box input{width:250px!important; height:38px!important; font-size:14px!important;}
+    .login-box .captcha input{width:108px!important;}
+    .login-box .captcha-img{height:40px;}
+    .login-box .login-btn{width:280px; margin-left:30px; font-size:20px; margin-top:10px; height:40px;}
+    .login-box .copy-right{margin-top:30px; font-size:14px;}
+
+    .download-app{width:170px; left:20%;}
+    .download-app .qr{width:170px; height:170px;}
+    .download-app p{width:150px; font-size:16px; line-height:24px; height:160px;}
+    .download-app p strong{font-size:20px; margin-bottom:10px;}
+}
+
+

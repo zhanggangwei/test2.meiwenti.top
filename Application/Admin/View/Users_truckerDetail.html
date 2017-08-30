@@ -1,0 +1,62 @@
+<div class="pageContent">
+            <div class="bjui-row">
+                <label class="row-label">车主账号：</label>
+                <div class="row-input">
+                    <{$info.order_id}>
+                </div>
+            </div>
+            <div class="bjui-row" id="j_order_buy_div">
+                <label class="row-label">采购方：</label>
+                <div class="row-input">
+                <{$info.buyer_name}>
+                </div>
+            </div>
+            <div class="bjui-row" id="j_order_sell_div">
+                <label class="row-label">销售方：</label>
+                <div class="row-input">
+                    <{$info.seller_name}>
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">提货地址：</label>
+                <div class="row-input">
+                    <{$info.begin_address}>
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">送货地址：</label>
+                <div class="row-input">
+                    <{$info.end_address}>
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">煤种：</label>
+                <div class="row-input">
+                <{$info.coal_type_name}>
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">订单量：</label>
+                <div class="row-input">
+                <{$info.quantity}>吨
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">含税单价：</label>
+                <div class="row-input">
+                <{$info.price}>元/吨
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">总金额：</label>
+                <div class="row-input">
+                <{$info.total_money}><span>元</span>
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">订单日期：</label>
+                <div class="row-input">
+                <{$info.create_time}>
+                </div>
+            </div>
+</div>

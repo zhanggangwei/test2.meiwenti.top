@@ -1,0 +1,61 @@
+<div class="pageContent">
+	<form action="<{:U('Admin/Industry/editPowerin')}>" id="j_custom_form" data-toggle="validate" data-alertmsg="false" method="post">
+        <input type="hidden" name="id" value="<{$info.id}>">
+        <div style="margin: 0 auto;max-width:500pt;float: left;padding: 30pt">
+            <div class="bjui-row">
+                <label class="row-label">电厂名字：</label>
+                <div class="row-input required">
+                    <input type="text" name="name" value="<{$info.name}>" data-rule="required">
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">电厂图片：</label>
+                <div class="row-input">
+                    <input type="file" data-name="picture" data-toggle="webuploader" data-options="
+                {
+                    pick: {label: '点击选择图片'},
+                    server: '<{:U('Api/Common/uploadImg')}>',
+                    fileNumLimit: 1,
+                    formData: {dir:'custompic'},
+                    uploaded: '<{$info.picture|getTrueImgSrc}>',
+                    basePath: '',
+                    accept: {
+                        title: '图片',
+                        extensions: 'jpg,png',
+                        mimeTypes: '.jpg,.png'
+                    }
+                }">
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">电厂库存：</label>
+                <div class="row-input required">
+                    <input type="text" name="inventory" value="<{$info.inventory}>" data-rule="required">
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">日耗量：</label>
+                <div class="row-input required">
+                    <input type="text" name="daily" value="<{$info.daily}>" data-rule="required">
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">排序：</label>
+                <div class="row-input required">
+                    <input type="text" name="sort" value="<{$info.sort}>" data-rule="required">
+                </div>
+            </div>
+            <hr style="margin:5px 0 15px;">
+            <div class="text-center">
+                <button type="submit" class="btn-default btn">提交</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    if (!(<{$info.id}>+0)) {
+        BJUI.dialog('closeCurrent');
+        BJUI.navtab('refresh');
+    }
+
+</script>

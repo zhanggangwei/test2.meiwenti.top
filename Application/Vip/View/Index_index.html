@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>煤问题运维后台-首页</title>
+	<script src="__PUBLIC__/js/jquery-1.11.3.min.js"></script>
+	<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+	<script src="__PUBLIC__/js/echarts-all-3.js"></script>
+	<!--<script src="__PUBLIC__/js/vue.min.js"></script>-->
+	<script src="__PUBLIC__/js/jquery.pagination.js"></script>
+	<script src="__PUBLIC__/js/common.js"></script>
+	<script src="__PUBLIC__/js/charts.js"></script>
+	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css">
+	<!--<link rel="stylesheet" href="__PUBLIC__/css/pagination.css">-->
+	<link rel="stylesheet" href="__PUBLIC__/css/style.css">
+
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mwt-navbar-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand logo" href="##">
+				<img src="__PUBLIC__/images/logo.png" alt="">
+			</a>
+		</div>
+
+		<div class="collapse navbar-collapse" id="mwt-navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li><a class="logistics-company" href="#">张扬物流</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#" class="system-time">2017/08/25 15:48:58</a></li>
+				<li><a href="#">账号：88888</a></li>
+				<li><a href="#">修改信息</a></li>
+				<li><a href="#changePassword" data-toggle="modal">修改密码</a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-off"></span> 注销登录</a></li>
+				<li><a href="#" title="切换到贸易商界面"><span class="glyphicon glyphicon-sort"></span></a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav><!-- /.navbar-top -->
+
+<div class="modal fade" id="changePassword" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" >&times;</button>
+				<h4 class="modal-title" id="exampleModalLabel">修改密码</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal">
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-3 control-label">旧密码：</label>
+						<div class="col-sm-9">
+							<input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword4" class="col-sm-3 control-label">新密码：</label>
+						<div class="col-sm-9">
+							<input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword5" class="col-sm-3 control-label">确认密码：</label>
+						<div class="col-sm-9">
+							<input type="password" class="form-control" id="inputPassword5" placeholder="Password">
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				<button type="button" class="btn btn-primary">确认</button>
+			</div>
+		</div>
+	</div>
+</div><!-- .changePassword -->
+
+<div class="main">
+	<div class="side-bar">
+		<div class="toggle-sidebar" title="隐藏菜单栏">
+			<span class="glyphicon glyphicon-menu-left" ></span>
+		</div>
+		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingOne">
+					<div class="panel-title" data-toggle="collapse" data-parent="#accordion" data-target=".collapse-item1" aria-expanded="true">
+						合作车主 <span class="pull-right glyphicon glyphicon-triangle-bottom"></span>
+					</div>
+				</div>
+				<div class="panel-collapse collapse in collapse-item1" role="tabpanel" aria-labelledby="headingOne">
+					<ul class="list-group">
+						<li class="list-group-item">
+							<a href="##">添加合作车主</a>
+						</li>
+						<li class="list-group-item">
+							<a href="##">待确认列表</a>
+						</li>
+						<li class="list-group-item active">
+							<a href="##">合作中车主</a>
+						</li>
+						<li class="list-group-item">
+							<a href="##">待核算列表</a>
+						</li>
+						<li class="list-group-item">
+							<a href="##">已经核算列表</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab">
+					<div class="panel-title" data-toggle="collapse" data-parent="#accordion" data-target=".collapse-item2" aria-expanded="true">
+						货单管理 <span class="pull-right glyphicon glyphicon-triangle-right"></span>
+					</div>
+				</div>
+				<div class="panel-collapse collapse collapse-item2" role="tabpanel">
+					<ul class="list-group">
+						<li class="list-group-item">
+							<a href="##">待接单</a>
+						</li>
+						<li class="list-group-item">
+							<a href="##">司机退单</a>
+						</li>
+						<li class="list-group-item">
+							<a href="##">正在进行</a>
+						</li>
+						<li class="list-group-item">
+							<a href="##">手动结算</a>
+						</li>
+						<li class="list-group-item">
+							<a href="##">已完成</a>
+						</li>
+						<li class="list-group-item">
+							<a href="##">退单记录</a>
+						</li>
+						<li class="list-group-item">
+							<a href="##">派单历史查询</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab">
+					<div class="panel-title" data-toggle="collapse" data-parent="#accordion" data-target=".collapse-item3" aria-expanded="true">
+						自有车辆 <span class="pull-right glyphicon glyphicon-triangle-right"></span>
+					</div>
+				</div>
+				<div class="panel-collapse collapse collapse-item3" role="tabpanel">
+					<ul class="list-group">
+						<li class="list-group-item">
+							<a href="##">添加自由车辆</a>
+						</li>
+						<li class="list-group-item">
+							<a href="##">待审车辆</a>
+						</li>
+						<li class="list-group-item">
+							<a href="##">自由车辆</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab">
+					<div class="panel-title" data-toggle="collapse" data-parent="#accordion" data-target=".collapse-item4" aria-expanded="true">
+						故障自查 <span class="pull-right glyphicon glyphicon-triangle-right"></span>
+					</div>
+				</div>
+				<div class="panel-collapse collapse collapse-item4" role="tabpanel">
+					<ul class="list-group">
+						<li class="list-group-item">
+							<a href="##">车辆异常</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab">
+					<div class="panel-title" data-toggle="collapse" data-parent="#accordion" data-target=".collapse-item5" aria-expanded="true">
+						合作公司 <span class="pull-right glyphicon glyphicon-triangle-right"></span>
+					</div>
+				</div>
+				<div class="panel-collapse collapse collapse-item5" role="tabpanel">
+					<ul class="list-group">
+						<li class="list-group-item">
+							<a href="##">添加合作公司</a>
+						</li>
+						<li class="list-group-item">
+							<a href="##">待确认公司</a>
+						</li>
+						<li class="list-group-item">
+							<a href="##">合作中公司</a>
+						</li>
+						<li class="list-group-item">
+							<a href="##">分派历史</a>
+						</li>
+						<li class="list-group-item">
+							<a href="##">承运历史</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab">
+					<div class="panel-title" data-toggle="collapse" data-parent="#accordion" data-target=".collapse-item6" aria-expanded="true">
+						全部车辆 <span class="pull-right glyphicon glyphicon-triangle-right"></span>
+					</div>
+				</div>
+				<div class="panel-collapse collapse collapse-item6" role="tabpanel">
+					<ul class="list-group">
+						<li class="list-group-item">
+							<a href="##">车辆地图</a>
+						</li>
+						<li class="list-group-item">
+							<a href="##">车辆列表</a>
+						</li>
+						<li class="list-group-item">
+							<a href="##">车辆组织架构图</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab">
+					<div class="panel-title" data-toggle="collapse" data-parent="#accordion" data-target=".collapse-item7" aria-expanded="true">
+						线路管理 <span class="pull-right glyphicon glyphicon-triangle-right"></span>
+					</div>
+				</div>
+				<div class="panel-collapse collapse collapse-item7" role="tabpanel">
+					<ul class="list-group">
+						<li class="list-group-item">
+							<a href="##">添加路线</a>
+						</li>
+						<li class="list-group-item">
+							<a href="##">路线列表</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab">
+					<div class="panel-title" data-toggle="collapse" data-parent="#accordion" data-target=".collapse-item8" aria-expanded="true">
+						权限管理 <span class="pull-right glyphicon glyphicon-triangle-right"></span>
+					</div>
+				</div>
+				<div class="panel-collapse collapse collapse-item8" role="tabpanel">
+					<ul class="list-group">
+						<li class="list-group-item">
+							<a href="##">分公司列表</a>
+						</li>
+						<li class="list-group-item">
+							<a href="##">员工列表</a>
+						</li>
+						<li class="list-group-item">
+							<a href="##">组织架构图</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab">
+					<div class="panel-title" data-toggle="collapse" data-parent="#accordion" data-target=".collapse-item9" aria-expanded="true">
+						消息中心 <span class="pull-right glyphicon glyphicon-triangle-right"></span>
+					</div>
+				</div>
+				<div class="panel-collapse collapse collapse-item9" role="tabpanel">
+					<ul class="list-group">
+						<li class="list-group-item">
+							<a href="##">消息推送</a>
+						</li>
+						<li class="list-group-item">
+							<a href="##">消息列表</a>
+						</li>
+						<li class="list-group-item">
+							<a href="##">招聘信息</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div><!-- .side-bar -->
+
+	<div class="content">
+		<div class="row charts">
+			<div class="col-xs-4 train-number">
+				<p class="total">本月共计车次：3000次</p>
+				<div class="chart-bar"></div>
+			</div>
+			<div class="col-xs-4 tunnage-number">
+				<p class="total">本月共计吨数：5000吨</p>
+				<div class="tunnage-bar"></div>
+			</div>
+			<div class="col-xs-4 result-number">
+				<p class="total">本月招标量：10000吨</p>
+				<div class="result-pie"></div>
+			</div>
+		</div><!-- .charts -->
+		<div class="new-order">
+			<table class="table table-bordered table-hover text-center" data-url="Vip/Index/logistics" data-info="['id','lic_number','id','id']">
+				<caption >最新订单列表</caption>
+				<thead>
+					<tr>
+						<th>订单号</th>
+						<th>贸易方</th>
+						<th>煤种</th>
+						<th>计划发布方</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="4">
+							<div class="mwt-pagination">
+								<span class="total">共400条</span>
+								<div class="dropdown" style="display:inline-block;">
+									<a href="##" class="btn btn-default" data-toggle="dropdown">100条/页</a>
+									<ul class="dropdown-menu">
+										<li><a href="##" data-value="30">30条/页</a></li>
+										<li><a href="##" data-value="50">50条/页</a></li>
+										<li><a href="##" data-value="100">100条/页</a></li>
+										<li><a href="##" data-value="200">200条/页</a></li>
+									</ul>
+								</div>
+								<ul class="pagination pager-box">
+									<li class="prev disabled">
+										<a href="##"><span class="glyphicon glyphicon-menu-left"></span></a>
+									</li>
+									<li class="active">
+										<a href="##" data-value="1">1</a>
+									</li>
+									<li>
+										<a href="##" data-value="2">2</a>
+									</li>
+									<li>
+										<a href="##" data-value="3">3</a>
+									</li>
+									<li>
+										<a href="##" data-value="4">4</a>
+									</li>
+									<li>
+										<a href="##" data-value="5">5</a>
+									</li>
+									<li class="next">
+										<a href="##"><span class="glyphicon glyphicon-menu-right"></span></a>
+									</li>
+								</ul>
+								<span class="to">
+									前往
+									<input type="text" class="form-control">
+									页
+								</span>
+							</div>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+
+		</div><!-- .new-order -->
+		<div class="new-order">
+			<table class="table table-bordered table-hover text-center"
+				   data-url="Vip/Index/logistics"
+				   data-info="['id','lic_number','id','id','id','id','id']">
+				<caption >排队车辆</caption>
+				<thead>
+					<tr>
+						<th>车辆编号</th>
+						<th>车牌号</th>
+						<th>车主</th>
+						<th>等待时长</th>
+						<th>上次结束时间</th>
+						<th>上次拉货司机</th>
+						<th>车辆排队情况反馈</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>a</td>
+						<td>b</td>
+						<td>c</td>
+						<td>d</td>
+						<td>d</td>
+						<td>d</td>
+						<td>d</td>
+					</tr>
+					<tr>
+						<td>a</td>
+						<td>b</td>
+						<td>c</td>
+						<td>d</td>
+						<td>d</td>
+						<td>d</td>
+						<td>d</td>
+					</tr>
+					<tr>
+						<td>a</td>
+						<td>b</td>
+						<td>c</td>
+						<td>d</td>
+						<td>d</td>
+						<td>d</td>
+						<td>d</td>
+					</tr>
+				</tbody>
+				<tfoot>
+				<tr>
+					<td colspan="7">
+						<div class="mwt-pagination" data-data="queuing_vehicles">
+							<span class="total">共400条</span>
+							<div class="dropdown" style="display:inline-block;">
+								<a href="##" class="btn btn-default" data-toggle="dropdown">100条/页</a>
+								<ul class="dropdown-menu">
+									<li><a href="##" data-value="30">30条/页</a></li>
+									<li><a href="##" data-value="50">50条/页</a></li>
+									<li><a href="##" data-value="100">100条/页</a></li>
+									<li><a href="##" data-value="200">200条/页</a></li>
+								</ul>
+							</div>
+							<ul class="pagination pager-box">
+								<li class="prev disabled">
+									<a href="##"><span class="glyphicon glyphicon-menu-left"></span></a>
+								</li>
+								<li class="active">
+									<a href="##" data-value="1">1</a>
+								</li>
+								<li>
+									<a href="##" data-value="2">2</a>
+								</li>
+								<li>
+									<a href="##" data-value="3">3</a>
+								</li>
+								<li>
+									<a href="##" data-value="4">4</a>
+								</li>
+								<li>
+									<a href="##" data-value="5">5</a>
+								</li>
+								<li class="next">
+									<a href="##"><span class="glyphicon glyphicon-menu-right"></span></a>
+								</li>
+							</ul>
+							<span class="to">
+									前往
+									<input type="text" class="form-control">
+									页
+								</span>
+						</div>
+					</td>
+				</tr>
+				</tfoot>
+			</table>
+		</div><!-- .new-order -->
+
+	</div><!-- .content -->
+</div><!-- .main -->
+</body>
+</html>

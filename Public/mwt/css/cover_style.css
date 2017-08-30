@@ -1,0 +1,81 @@
+@charset "utf-8";
+
+#bjui-sidenav-col > h4{margin:10px 0 0 10px;}
+#bjui-sidenav-box>.nav ul li .fa{display:none;}
+#bjui-sidenav-box>.nav>li a{height:44px; line-height:34px;}
+#bjui-sidenav-box>.nav>li .fa-angle-right{transform:rotate(0deg)!important;}
+#bjui-sidenav-box>.nav>li.open .fa-angle-right{transform:rotate(90deg)!important;}
+#bjui-sidenav-box>.nav>li.open .nav{background:#fafafa;}
+#bjui-sidenav-box>.nav>li.open .nav a{border-right-color:#fafafa;}
+#bjui-sidenav-box > .nav > li > a:hover,
+#bjui-sidenav-box > .nav > li.active > a,
+#bjui-sidenav-box > .nav > li .nav > li > a:hover,
+#bjui-sidenav-box > .nav > li .nav > li.active > a{
+    background:#ddd;
+    border-bottom:none!important;
+    border-right:none;
+}
+#bjui-sidenav-box > .nav > li .nav > li{margin-top:0px;  }
+#bjui-sidenav-box > .nav > li > a{border-right:none;}
+.navbar-header a{display:inline-block; line-height:60px;}
+.navbar-header img{margin-top:-8px;}
+#bjui-sidenav-col{border-left:none;}
+ul.wl-index li{box-shadow:0 5px 5px #eee; border-radius:4px;}
+.datagrid-paging-box.bjui-paging-box{height:45px; padding-top:5px;}
+.paging-content{width:100%!important; }
+#p-latest-logistics-filter table,
+.bjui-datagrid table{width:100%!important;}
+.bjui-datagrid{border-radius:3px; }
+.bjui-datagrid .datagrid-title{background:#fff; text-indent:15px; height:50px; line-height:50px; font-size:16px;}
+.bjui-datagrid thead tr{height:30px;}
+.bjui-datagrid > .datagrid-paging-box{background:#fff;}
+.bjui-datagrid .table > tbody > tr:nth-of-type(2n){background:#fff;}
+.bjui-datagrid .datagrid-toolbar{background:transparent;}
+#bjui-navbar{height:60px; background:#324157;}
+.navbar-header{height:60px;}
+#bjui-navbar .navbar-collapse{height:60px!important;}
+#bjui-navbar-collapse>.nav,#bjui-navbar-collapse>.nav li a{height:60px; line-height:40px;}
+#bjui-sidenav-arrow{border-radius:0 4px 4px 0; height:48px; font-size:14px; line-height:48px; left:220px; top:45%; width:14px;}
+
+.bjui-sidenav-col{position:relative;}
+.bjui-datagrid .datagrid-toolbar,
+.bjui-datagrid .datagrid-toolbar .btn-group{height:0; min-height:0; margin:0; padding:0; border-bottom:none;}
+.datagrid-toolbar button{margin-top:-48px; left:100px; background:#5cb85c; border-color:#4cae4c; color:#fff;}
+#bjui-sidenav-btn{width:14px; left:0; top:46%; height:48px; line-height:48px; border-radius:0 4px 4px 0; }
+#bjui-sidenav-arrow:hover i,#bjui-sidenav-btn:hover i{transform:rotate(0deg);}
+.toggle-sendmethod{z-index:99; position:relative; margin-bottom:-30px; top:13px; left:100px; width:400px;}
+.bjui-pageHeader legend{display:none;}
+.bjui-pageHeader fieldset{border:none;}
+#bjui-navtab > .tabsPageHeader > .tabsPageHeaderContent > .nav > li.active span{font-size:15px;}
+.bjui-pageHeader{padding:0; margin-top:20px;}
+.selectpicker .filter-option{margin-top:-3px;}
+td button{margin:2px 3px;}
+#bjui-sidenav-box > ul > li > ul a{text-indent:16px;}
+a.right-arrow > i.fa{width:20px; height:20px!important; float:left; margin:8px 10px 0 0; }
+a.right-arrow > i.fa:before{content:"";}
+#bjui-sidenav-box > ul > li.hzcz > a > i{background:url(../img/icon/hezuochelaing.png) no-repeat;}
+#bjui-sidenav-box > ul > li.hdgl > a > i{background:url(../img/icon/huodanguanli.png) no-repeat;}
+#bjui-sidenav-box > ul > li.zycl > a > i{background:url(../img/icon/ziyouchelaing.png) no-repeat;}
+#bjui-sidenav-box > ul > li.gzzc > a > i{background:url(../img/icon/guzhangzicha.png) no-repeat;}
+#bjui-sidenav-box > ul > li.hzgs > a > i{background:url(../img/icon/hezuojigou.png) no-repeat;}
+#bjui-sidenav-box > ul > li.qbcl > a > i{background:url(../img/icon/quanbuchexing.png) no-repeat;}
+#bjui-sidenav-box > ul > li.xlgl > a > i{background:url(../img/icon/xianluguanli.png) no-repeat;}
+#bjui-sidenav-box > ul > li.qxgl > a > i{background:url(../img/icon/quanxianguanli.png) no-repeat;}
+#bjui-sidenav-box > ul > li.xxzx > a > i{background:url(../img/icon/xiaoxizhongxin.png) no-repeat;}
+#bjui-sidenav-box > ul > li.ddgl > a > i{background:url(../img/icon/dd.png) no-repeat;}
+#bjui-sidenav-box > ul > li.wlap > a > i{background:url(../img/icon/wltz.png) no-repeat;}
+#bjui-sidenav-box > ul > li.mtmy > a > i{background:url(../img/icon/mtsc.png) no-repeat;}
+#bjui-sidenav-box > ul > li.hydt > a > i{background:url(../img/icon/hy.png) no-repeat;}
+
+.bjui-dialog button.btn-close{background:#d9534f; border-color:#d43f3a; color:#fff;}
+.bjui-dialog button.btn-default{background:#5cb85c; border-color:#4cae4c; color:#fff;}
+.bjui-dialog.dialogShadow{box-shadow:0 5px 5px #ccc;}
+.bjui-dialog.dialogShadow > .dialogHeader{background-color:#324157; color:#fff;}
+.bjui-pageFooter{background-color:#fff;}
+.bjui-dialog{overflow: hidden;}
+.bjui-dialog .dialogHeader a.close{color:#fff; border-radius:0!important; font-size:16px;}
+.bjui-dialog .dialogHeader a.maximize{color:#fff; font-size:16px;}
+
+
+
+

@@ -1,0 +1,23 @@
+/* CSS Document */
+@font-face {
+    font-family: 'iconfont';  /* project id 158871 */
+    src: url('//at.alicdn.com/t/font_z2aw5o93rfwdn29.eot');
+    src: url('//at.alicdn.com/t/font_z2aw5o93rfwdn29.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_z2aw5o93rfwdn29.woff') format('woff'),
+    url('//at.alicdn.com/t/font_z2aw5o93rfwdn29.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_z2aw5o93rfwdn29.svg#iconfont') format('svg');
+}
+
+.iconfont{
+    font-family:"iconfont";
+    font-size:16px;font-style:normal;
+}
+body .alert_error .layui-layer-title{background:#c00; color:#fff; border: none;}
+body .alert_error .layui-layer-btn{border-top:1px solid #E9E7E7}
+body .alert_error .layui-layer-btn a{background:#333;}
+body .alert_error .layui-layer-btn .layui-layer-btn1{background:#999;}
+
+body .alert_success .layui-layer-title{background:#57FF8D; color:#fff; border: none;}
+body .alert_success .layui-layer-btn{border-top:1px solid #E9E7E7}
+body .alert_success .layui-layer-btn a{background:#57FF8D;}
+body .alert_success .layui-layer-btn .layui-layer-btn1{background:#999;}

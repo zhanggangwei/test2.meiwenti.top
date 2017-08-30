@@ -1,0 +1,65 @@
+<div class="pageContent">
+	<form action="<{:U('Admin/Employment/editRecruit')}>" id="j_custom_form" data-toggle="validate" data-alertmsg="false" method="post">
+        <div style="margin: 0 auto;max-width:500pt;float: left;padding: 30pt">
+            <input type="hidden" name="is_mwt" value="1">
+            <input type="hidden" name="id" value="<{$info.id}>">
+            <div class="bjui-row">
+                <label class="row-label">职位名称：</label>
+                <div class="row-input required">
+                    <input type="text" name="title" value="<{$info.title}>" data-rule="required">
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">薪资待遇：</label>
+                <div class="row-input">
+                    <input type="text" name="salary" value="<{$info.salary}>">
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">招聘人数：</label>
+                <div class="row-input required">
+                    <input type="number" name="number" value="<{$info.number}>" data-rule="required">
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">学历要求：</label>
+                <div class="row-input">
+                    <input type="text" name="education" value="<{$info.education}>">
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">工作经验：</label>
+                <div class="row-input">
+                    <input type="text" name="worked" value="<{$info.worked}>">
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">驾驶证：</label>
+                <div class="row-input required">
+                    <input type="text" name="lic_level" value="<{$info.lic_level}>" data-rule="required">
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">地址：</label>
+                <div class="row-input required">
+                    <input type="text" name="address" value="<{$info.address}>" data-rule="required">
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">补充信息：</label>
+                <div class="row-input">
+                    <textarea name="comment" id="" width="200"><{$info.comment}></textarea>
+                </div>
+            </div>
+            <hr style="margin:5px 0 15px;">
+            <div class="text-center">
+                <button type="submit" class="btn-default btn">提交</button>
+            </div>
+        </div>
+    </form>
+</div>
+<!--<script>-->
+    <!--$('form').submit(function(){-->
+        <!--BJUI.dialog('closeCurrent');-->
+    <!--});-->
+<!--</script>-->

@@ -1,0 +1,45 @@
+<div class="pageContent">
+        <div style="margin: 0 auto;max-width:500pt;float: left;padding: 30pt">
+            <div class="bjui-row">
+                <img src="<{$info.picture|getTrueImgSrc=###,true}>" alt="">
+            </div>
+            <div class="bjui-table">
+                <table>
+                    <tr>
+                        <td>名字：</td>
+                        <td><{$info.name}></td>
+                        <td>学历：</td>
+                        <td><{$info.education}></td>
+                    </tr>
+                    <tr>
+                        <td>电话：</td>
+                        <td><{$info.tel}></td>
+                        <td>驾照：</td>
+                        <td><{$info.lic_level}></td>
+                    </tr>
+                    <tr>
+                        <td>性别：</td>
+                        <td><{$info.sex}></td>
+                        <td>户籍：</td>
+                        <td><{$info.home}></td>
+                    </tr>
+                    <tr>
+                        <td>申请职位：</td>
+                        <td><{$info.title}></td>
+                        <td>工作经验：</td>
+                        <td><{$info.worked}></td>
+                    </tr>
+                    <tr>
+                        <td>期望月薪：</td>
+                        <td><{$info.salary}></td>
+                        <td>添加时间：</td>
+                        <td><{$info.addate}></td>
+                    </tr>
+                    <tr>
+                        <td>审核状态：</td>
+                        <td><{$info['is_passed']?'已审核':'未审核'}></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+</div>

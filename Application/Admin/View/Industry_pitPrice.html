@@ -1,0 +1,292 @@
+
+<style>
+    .coalPrice-box{height:100%;}
+    #box1{padding:20px; position:relative; overflow:auto; height:100%;}
+    .box-inner{max-width:1000px; min-width:600px; margin:0 auto;  }
+    .card-body{padding:0;}
+    #box1 .modal-dialog{margin-top:200px;}
+    .card-body .table{margin:0; }
+    .save-all{position:absolute; height:60px; right:20px; top:0; width:100%; background:#fff; z-index:100;}
+    .save-all .btn-primary{position:absolute; right:120px; top:10px;}
+    .save-all .btn-success{position:absolute; right:40px; top:10px;}
+    .sort-input{border:1px solid #fff; color:#fff; width:50px; background:transparent; border-radius:6px; padding:2px 4px; margin-right:6px;}
+    .number-input{width:40px; display:inline-block; text-align:center;}
+    .invoice-all{width:80px; display:inline-block;}
+    .box-inner .item{margin-top:40px;}
+    .modal-backdrop{display:none!important;}
+</style>
+<div class="coalPrice-box">
+
+<div class="save-all">
+    <button class="btn btn-primary btn-lg" @click="saveAll">
+        全部保存
+    </button>
+    <a href="#addCoalModal" class="btn btn-success btn-lg" data-toggle="modal">添加 <span class="glyphicon glyphicon-plus"></span></a>
+</div>
+<div id="box1">
+
+    <div class="box-inner clearfix">
+        <div class="item" v-for="(coal,index) in coals">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><input type="text" v-model="coal.sort" class="sort-input text-center" @change="refreshSort">{{coal.name}}</h3>
+                </div>
+                <div class="panel-body card-body">
+                    <table class="table table-bordered text-center table-striped" style="width:600px;">
+                        <thead>
+                        <tr>
+                            <th class="text-center">序号</th>
+                            <th class="text-center">煤种</th>
+                            <th class="text-center" style="width:150px;">价格</th>
+                            <th class="text-center">发票
+                                <div class="invoice-all">
+                                    <select class="form-control input-sm" name="" id="" @change="changeInvoice($event,coal)">
+                                        <option value="一票">一票</option>
+                                        <option value="二票">二票</option>
+                                        <option value="三票">三票</option>
+                                    </select>
+                                </div>
+                            </th>
+                            <th class="text-center">是否显示</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr v-for="(coalType,index2) in coal.list">
+                            <td>
+                                <input type="text" class="form-control number-input" v-model="coalType.sort">
+                            </td>
+                            <td>{{coalType.cate_name}}</td>
+                            <td>
+                                <input v-model="coalType.price" class="form-control input-sm">
+                            </td>
+                            <td>
+                                <select v-model="coalType.invoice" name="invoice" id="" class="form-control input-sm">
+                                    <option value="一票">一票</option>
+                                    <option value="二票">二票</option>
+                                    <option value="三票">三票</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select v-model="coalType.is_show" name="isShow" id="" class="form-control input-sm">
+                                    <option value="1">是</option>
+                                    <option value="0">否</option>
+                                </select>
+                            </td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="5">
+                                <button class="btn btn-primary pull-right btn-sm" @click="saveSingle(coal)"> 保存 </button>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal" id="addCoalModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">
+                        <span class="close" data-dismiss="modal">&times;</span>
+                        添加煤矿
+                    </h3>
+                </div>
+                <div class="modal-body">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label>煤矿：</label>
+                            <select class="form-control" name="name" v-model="add_name">
+                                <option v-for="(coal,i) in pits" :value="coal.id">{{coal.name}}</option>
+                            </select>
+                            <button v-show="!isAddInput" class="btn btn-default btn-sm" @click.prevent="addCoal">增加</button>
+                            <div v-show="isAddInput" style="display:inline-block;">
+                                <input type="text" v-model="new_coal_name" class="form-control">
+                                <button class="btn btn-default btn-sm" @click.prevent="confirmAddCoal">确定</button>
+                                <button class="btn btn-default btn-sm" @click.prevent="cancelAddCoal">取消</button>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div class="form-group">
+                            <label>煤种：</label>
+                            <select class="form-control" name="type" v-model="add_type">
+                                <option v-for="(type,i2) in cates" :value="type.id">{{type.name}}</option>
+                            </select>
+                            <button v-show="!isAddTypeInput" class="btn btn-default btn-sm" @click.prevent="addCoalType">增加</button>
+                            <div v-show="isAddTypeInput" style="display:inline-block;">
+                                <input type="text" v-model="new_coal_type" class="form-control">
+                                <button class="btn btn-default btn-sm" @click.prevent="confirmAddCoalType">确定</button>
+                                <button class="btn btn-default btn-sm" @click.prevent="cancelAddCoalType">取消</button>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div class="form-group">
+                            <label>价格：</label>
+                            <input type="text" v-model="add_price" class="form-control" name="price">
+                        </div>
+                        <br><br>
+                        <div class="form-group">
+                            <label>发票：</label>
+                            <select class="form-control" name="invoice" v-model="add_invoice">
+                                <option value="一票">一票</option>
+                                <option value="二票">二票</option>
+                                <option value="三票">三票</option>
+                            </select>
+                        </div>
+                        <br><br>
+                        <div class="form-group">
+                            <label>排序：</label>
+                            <input type="text" v-model="add_sort" class="form-control" name="sort">
+                        </div>
+                        <br><br>
+                        <div class="form-group">
+                            <label>是否显示：</label>
+                            <select name="isShow" id="" class="form-control" v-model="add_is_show">
+                                <option value="1">是</option>
+                                <option value="0">否</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" data-dismiss="modal">取消</button>
+                    <button class="btn btn-success" data-dismiss="modal" @click.prevent="confirmAdd">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+            el : ".coalPrice-box",
+            data : {
+                coals : [],
+                pits : [],
+                cates : [],
+                isAddInput : false,
+                isAddTypeInput : false,
+                add_name : "1",
+                add_type : "1",
+                add_price : "0",
+                add_invoice : "一票",
+                add_sort : "0",
+                add_is_show : 1,
+                new_coal_name : "",
+                new_coal_type : ""
+            },
+            created : function(){
+                this.$http.get("<{:U('Admin/Industry/getPitPrice')}>").then(function(res){
+                    this.coals = res.body;
+                });
+
+                this.$http.get("<{:U('admin/Industry/pits')}>").then(function(res){
+                    this.pits = res.body;
+                });
+
+                this.$http.get("<{:U('admin/Industry/cates')}>").then(function(res){
+                    this.cates = res.body;
+                });
+            },
+            methods : {
+                saveSingle : function(obj){
+                    this.$http.post("<{:U('admin/industry/editPitPrice')}>",obj,{
+                        emulateJSON : true
+                    }).then(function (res) {
+                        console.log(res)
+                    });
+                },
+                saveAll : function () {
+                    console.log(this.coals)
+                    this.$http.post("<{:U('admin/industry/editAllPitPrice')}>",{
+                        arr : this.coals
+                    },{
+                        emulateJSON : true
+                    }).then(function (res) {
+                        console.log(res)
+                    });
+                },
+                refreshSort : function(){
+
+                },
+                addCoal : function () {
+                    this.isAddInput = !this.isAddInput;
+                },
+                confirmAddCoal : function () {
+                    this.$http.post("<{:U('admin/industry/addPitName')}>",{
+                        name : this.new_coal_name
+                    },{
+                        emulateJSON : true
+                    }).then(function (res) {
+                        this.pits.push({
+                            name : this.new_coal_name,
+                            id : res.body.id
+                        });
+                        this.new_coal_name = "";
+                    });
+                    this.isAddInput = false;
+                },
+                cancelAddCoal : function () {
+                    this.isAddInput = false;
+                },
+
+                addCoalType : function () {
+                    this.isAddTypeInput = !this.isAddTypeInput;
+                },
+                confirmAddCoalType : function () {
+                    this.$http.post("<{:U('admin/industry/addPitCate')}>",{
+                        name : this.new_coal_type
+                    },{
+                        emulateJSON : true
+                    }).then(function (res) {
+                        this.cates.push({
+                            name : this.new_coal_type,
+                            id : res.body.id
+                        });
+                        this.new_coal_type = "";
+                    });
+                    this.isAddTypeInput = false;
+                },
+                cancelAddCoalType : function () {
+                    this.isAddTypeInput = false;
+                },
+                confirmAdd : function () {
+                    var data = {
+                        pit_id : this.add_name,
+                        sort : this.add_sort,
+                        cate_id : this.add_type,
+                        price : this.add_price,
+                        invoice : this.add_invoice,
+                        is_show : this.add_is_show
+                    };
+
+                    this.$http.post("<{:U('admin/industry/addPitPrice')}>",data,{
+                        emulateJSON : true
+                    }).then(function (res) {
+                        this.$http.get("<{:U('Admin/Industry/getPitPrice')}>").then(function(res){
+                            this.coals = res.body;
+                        });
+                    });
+
+                },
+                changeInvoice : function (ev,coal) {
+                    var target = ev.target;
+                    coal.list.forEach(function (item,i) {
+                        item.invoice = target.value;
+                    });
+                }
+            }
+        });
+
+//        alert("\u540d\u79f0\u4e0d\u80fd\u4e3a\u7a7a")
+        //<{:U('admin/industry/editAllPitPrice')}>
+        //确定添加：addPitPrice
+        //保存：editPitPrice
+        //全部保存：editAllPitPrice
+    </script>
+</div>
+</div>

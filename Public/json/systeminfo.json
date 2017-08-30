@@ -1,0 +1,10 @@
+[
+	{"name":"系统设置", "info":[
+		{"website_name":"通用后台管理系统"},
+		{"last_login_time":"2017-03-10 09:09:56"},
+		{"last_login_ip":"127.0.0.1"},
+		{"operate_system":"Windows64"},
+		{"server":"ApachePHP5.3.29"},
+		{"mysql_version":"5.1.48-log"}
+	]}
+]

@@ -1,0 +1,34 @@
+<script>
+    var dataurl="<{:U('Admin/Industry/getPowerin')}>";
+</script>
+
+<div class="pageContent" style="position:absolute;top:0;bottom: 10pt;width:100%;">
+    <button type="button" class="btn btn-default" data-toggle="dialog" data-options="{id:'powerin', url:'<{:U('Admin/Industry/addPowerin')}>', title:'添加电厂'}">添加电厂</button>
+    <button type="button" class="btn btn-default" data-toggle="doajax" data-options="{url:'<{:U('Admin/Industry/collectPowerin')}>', title:'采集电厂数据'}">采集电厂数据</button>
+    <table class="table table-bordered" data-toggle="datagrid" data-options="{
+        height:'97%',
+        width:'100%',
+        gridTitle: '电厂库存',
+		 showLinenumber:false,
+        dataUrl: dataurl,
+        fieldSortable:false,
+        filterMult:false,
+        columnMenu:false,
+        local:'remote',
+        filterThead:false,
+        paging:{pageSize:10}
+	}" id="power-in-filter">
+        <thead>
+        <tr>
+            <th data-options="{name:'id',align:'center'}" style="width: 5%">ID</th>
+            <th data-options="{name:'name',align:'center'}" style="width: 15%">电厂名字</th>
+            <th data-options="{name:'update_time',align:'center'}" style="width: 20%">更新日期</th>
+            <th data-options="{name:'inventory',align:'center'}" style="width: 20%">库存(万吨)</th>
+            <th data-options="{name:'daily',align:'center'}" style="width: 10%">日耗量(万吨)</th>
+            <th data-options="{name:'sort',align:'center'}" style="width: 10%">排序</th>
+            <th data-options="{name:'dostr',align:'center'}" style="width: 20%">操作</th>
+        </tr>
+        </thead>
+    </table>
+
+</div>

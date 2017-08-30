@@ -1,0 +1,5 @@
+[
+	{"name":"文章管理", "children":[
+		{"id":"article-list", "name":"文章列表", "target":"navtab", "url":"html/article/articlelist.html","fresh":true}
+	]}
+]

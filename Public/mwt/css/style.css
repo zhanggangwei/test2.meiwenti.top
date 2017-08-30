@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+body{margin:0; padding:0; height:100%; z-index:1;}
+.navbar-header{border-radius:0; }
+.navbar-header .el-menu-item{float:right; color:#fff; }
+.el-menu-item a{color:#48576a; text-decoration:none; display:block;}
+.el-menu-item.is-active a{color:#20a0ff;}
+.el-menu-item.logo,
+.el-menu-item.zhangyang-logistics{float:left; font-size:20px;}
+.navbar-header .el-menu-item.logo:hover{
+	background:transparent!important;
+	border-bottom-color:transparent!important;
+}
+
+.logo img{margin-top:13px;}
+.box{color:#000; background-color:; }
+.main{overflow:auto;}
+.side-menu{background:#eef1f6; height:100%; overflow:hidden; transition:width 0.3s;}
+.side-menu.hide{width:0!important;}
+.content{transition:width 0.3s;}
+.content-inner{margin:15px;}
+.full{width:100%!important;}
+.index-card{text-align:center;}
+.index-card .el-card__header{padding:18px 0; font-size:22px;}
+.index-card .el-card__body{padding:20px 0; text-align:center;}
+.new-order .el-card__body{padding:0;}
+.el-card__header h4{margin:0; padding:0;}
+.new-order{margin-bottom:40px;}
+.new-order .el-table,
+.content-inner .el-table{border:none;}
+.new-order .el-table,
+.new-order .cell{text-align:center;}
+.el-pagination{text-align:center; padding:5px;}
+
+.toggle-side-menu{
+	width:10px; 
+	height:50px; 
+	padding:0;
+	position:fixed; 
+	background:#aaa; 
+	opacity:0.5;
+	top:50%;
+	left:16.6667%; 
+	margin:-25px 0 0 0; 
+	border-radius:0 4px 4px 0; 
+	border:none;
+	cursor:pointer;
+	transition:opacity 0.3s,left 0.3s;
+}
+.toggle-side-menu.hide{left:0;}
+.toggle-side-menu:hover{opacity:1;}
+.side-menu-bg{
+	width:16.6667%;
+	position:fixed;
+	left:0;
+	bottom:0;
+	background:#eef1f6;
+	height:100%;
+	z-index:-1;
+	transition:width 0.3s;
+}
+.side-menu-bg.hide{width:0;}
+
+.icon{width:20px; height:20px; display:inline-block; margin-right:10px; position:relative; top:5px;}
+.hzcz{background:url(../img/icon/hezuochelaing.png) no-repeat;}
+.hdgl{background:url(../img/icon/huodanguanli.png) no-repeat;}
+.zycl{background:url(../img/icon/ziyouchelaing.png) no-repeat;}
+.gzzc{background:url(../img/icon/guzhangzicha.png) no-repeat;}
+.hzgs{background:url(../img/icon/hezuojigou.png) no-repeat;}
+.qbcl{background:url(../img/icon/quanbuchexing.png) no-repeat;}
+.xlgl{background:url(../img/icon/xianluguanli.png) no-repeat;}
+.qxgl{background:url(../img/icon/quanxianguanli.png) no-repeat;}
+.xxzx{background:url(../img/icon/xiaoxizhongxin.png) no-repeat;}

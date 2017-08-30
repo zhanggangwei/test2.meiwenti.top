@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>伊泰已完成订单</title>
+    <link rel="stylesheet" href="__PUBLIC__/mwt/mwt_zgw.css">
+    <script src="__PUBLIC__/B-JUI/js/jquery-1.11.3.min.js"></script>
+    <script src="__PUBLIC__/mwt/layer/layer.js"></script>
+</head>
+<body>
+<header>
+    <a href="<{:U('Vip/Index/index')}>">返回物流公司首页</a>
+    <ul style="border:1px solid #ccc;border-radius: 5pt;margin: 20px;padding: 10px">
+        <li>公司名：<{$Think.session.company_name}></li>
+    </ul>
+</header>
+<style>
+    .page_show a{
+        border:1px solid #0D9BF2;
+        padding: 5pt;
+        margin-left: 5pt;
+    }
+</style>
+<div style="height:550px;overflow: auto;border:1px solid #ddd">
+    <div class="bjui-pageHeader">
+        <!--搜索选项-->
+        <form action="<{:U('Bill/Bill/yitai_finished')}>" id="bill-finished-form">
+            卸货时间：<input type="date" name="start_time" value="<{$start_time}>" id="start_time">到
+            <input type="date" name="end_time" value="<{$end_time}>" id="end_time">
+            车辆编号：<input type="text" name="owner_order" value="<{$owner_order}>">
+            车牌号：<input type="text" name="lic_number" value="<{$lic_number}>">
+            卖家：<select data-toggle="selectpicker" name="seller" class="form-control" >
+                    <option value="">全部</option>
+                    <foreach name="sellers" key="key" item="vo">
+                        <option value="<{$vo.id}>" <if condition="$vo['id'] eq $seller">selected</if>><{$vo.name}></option>
+                    </foreach>
+                </select>
+            买家：<select data-toggle="selectpicker" name="buyer" class="form-control" >
+                    <option value="">全部</option>
+                    <foreach name="buyers" key="key" item="vo">
+                        <option value="<{$vo.id}>" <if condition="$vo['id'] eq $buyer">selected</if>><{$vo.name}></option>
+                    </foreach>
+                </select>
+            <input type="submit" value="查询">
+        </form>
+    </div>
+    <notempty name="data">
+    <div class="pageContent">
+
+        <table class="table table-bordered">
+            <tr>
+                <th>序号</th>
+                <th>系统单号</th>
+                <th>提煤单号</th>
+                <th>贸易双方</th>
+                <th>煤种</th>
+                <th>车牌号</th>
+                <th>司机</th>
+                <!--<th>安排吨位</th>-->
+                <th>起始吨数</th>
+                <th>结束吨数</th>
+                <th>损耗</th>
+                <th>派单时间</th>
+                <th>接单时间</th>
+                <!--<th>拉煤时间</th>-->
+                <th>卸货时间</th>
+            </tr>
+            <volist name="data" id="vo" key="key">
+                <tr>
+                    <td><{$key+$start}></td>
+                    <td><{$vo.id}></td>
+                    <td><{$vo.bill_number}></td>
+                    <td><{$vo.buy_sell}></td>
+                    <td><{$vo.coal_type}></td>
+                    <td><{$vo.lic_number}></td>
+                    <td><{$vo.driver}></td>
+                    <!--<td><{$vo.arrange_w}></td>-->
+                    <td><{$vo.begin_w}></td>
+                    <td><{$vo.end_w}></td>
+                    <td><{$vo.use_w}></td>
+                    <td><{$vo.dis_time}></td>
+                    <td><{$vo.do_time}></td>
+                    <!--<td><{$vo.begin_time}></td>-->
+                    <td style="background: rgb(198,223,223)"><{$vo.end_time}></td>
+                </tr>
+            </volist>
+        </table>
+    </div>
+    <div class="pageFooter" style="position: fixed;bottom:20px">
+        <!--结果-->
+        <div class="page_show" id="bill2_page"><{$show}></div>
+    </div>
+        <else />
+        <span style="color:red">没有数据</span>
+    </notempty>
+</div>
+<script>
+    $(function () {
+        function CompareDate(d1,d2)
+        {
+            return ((new Date(d1.replace(/-/g,"\/"))) > (new Date(d2.replace(/-/g,"\/"))));
+        }
+
+        $('#bill-finished-form').submit(function () {
+            // 检查日期
+            var s_time = $('#start_time').val();
+            var e_time = $('#end_time').val();
+            if (CompareDate(s_time, e_time)) {
+                layer.alert('开始时间大于结束时间');
+                return false;
+            }
+            console.log(111);
+            return true;
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<div class="pageContent">
+	<form action="<{:U('Admin/Menu/addMenu')}>" id="j_custom_form" data-toggle="validate" data-alertmsg="false" method="post">
+        <div style="margin: 0 auto;max-width:500pt;float: left;padding: 30pt">
+            <div class="bjui-row">
+                <label class="row-label">标识符：</label>
+                <div class="row-input required">
+                    <input type="text" name="name" value="">
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">菜单名：</label>
+                <div class="row-input required">
+                    <input type="text" name="title" value="">
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">pid：</label>
+                <div class="row-input required">
+                    <input type="text" name="pid" value="<{:I('get.pid')}>">
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">sort：</label>
+                <div class="row-input required">
+                    <input type="text" name="sort" value="0">
+                    <input type="hidden" name="is_admin" value="1">
+                </div>
+            </div>
+            <div class="bjui-row">
+                <label class="row-label">level：</label>
+                <div class="row-input required">
+                    <input type="text" name="level" value="<{$_GET['level']+1}>">
+                </div>
+            </div>
+            <hr style="margin:5px 0 15px;">
+            <div class="text-center">
+                <button type="submit" class="btn-default btn">提交</button>
+            </div>
+        </div>
+    </form>
+</div>

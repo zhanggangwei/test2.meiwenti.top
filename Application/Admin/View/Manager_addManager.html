@@ -1,0 +1,65 @@
+<div class="pageContent">
+    <form action="<{:U('Admin/Manager/add')}>" id="j_custom_form" data-toggle="validate" data-alertmsg="false" method="post">
+        <div style="margin: 0 auto;max-width:500pt;float: left;padding: 30pt">
+        <!--<div class="bjui-row">-->
+            <!--<label class="row-label">管理员账号：</label>-->
+            <!--<div class="row-input required">-->
+                <!--<input type="text" name="account" data-rule="required">-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="bjui-row">
+            <label class="row-label">密码：</label>
+            <div class="row-input required">
+                <input type="password" name="password" data-rule="required">
+            </div>
+        </div>
+        <div class="bjui-row">
+            <label class="row-label">确认密码：</label>
+            <div class="row-input required">
+                <input type="password" name="repassword" data-rule="required">
+            </div>
+        </div>
+        <div class="bjui-row">
+            <label class="row-label">手机号：</label>
+            <div class="row-input required">
+                <input type="text" name="phone" id="j_custom_mobile" value="" data-rule="required;mobile">
+            </div>
+        </div>
+        <div class="bjui-row">
+            <label class="row-label">昵称：</label>
+            <div class="row-input required">
+                <input type="text" name="nickname" id="j_custom_nickname" value="" data-rule="required">
+            </div>
+        </div>
+        <div class="bjui-row">
+            <label class="row-label">所属用户组：</label>
+            <div class="row-input required">
+                <select name="group" id="j_custom_group" data-toggle="selectpicker" data-rule="required">
+                    <option value="">给用户分配一个组</option>
+                    <volist name="group_info" id="vo">
+                        <option value="<{$vo.id}>"><{$vo.title}></option>
+                    </volist>
+                </select>
+            </div>
+        </div>
+        <hr style="margin:5px 0 15px;">
+        <div class="text-center">
+            <button type="submit" class="btn-default btn">提交</button>
+        </div>
+        </div>
+    </form>
+</div>
+<script>
+    $('#j_custom_mobile').change(function () {
+
+    });
+
+    $('form').submit(function(){
+        var p = $("input[name='password']").val();
+        var p1 = $("input[name='repassword']").val();
+//        if (p != p1) {
+//            BJUI.alertmsg('info', '密码不一致！');
+//            return false;
+//        }
+    });
+</script>

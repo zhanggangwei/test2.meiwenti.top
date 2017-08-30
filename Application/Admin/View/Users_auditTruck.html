@@ -1,0 +1,54 @@
+<script>
+    var dataurl="<{:U('Admin/Users/getAuditTruck')}>";
+    $('#users-audit-truck-form').attr('action', dataurl);
+</script>
+<div class="bjui-pageHeader" style="background-color:#fefefe; border-bottom:none;">
+    <form action="" data-toggle="ajaxsearch" data-options="{searchDatagrid:$.CurrentNavtab.find('#datagrid-audit-truck-filter')}" id="users-audit-truck-form">
+        <fieldset>
+            <div style="margin:0; padding:1px 5px 5px;">
+                <span>车牌号：</span>
+                <input type="text" name="lic_number" class="form-control" size="15">
+
+                <span>车主：</span>
+                <input type="text" name="name" class="form-control" size="15">
+
+                <div class="btn-group">
+                    <button type="submit" class="btn-green" data-icon="search">开始搜索！</button>
+                    <button type="reset" class="btn-orange" data-icon="times">重置</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<div class="pageContent" style="position:absolute;top:40pt;bottom: 10pt;width: 100%">
+    <table class="table table-bordered" data-toggle="datagrid" data-options="{
+        height:'100%',
+        gridTitle: '待审核车辆',
+		 showLinenumber:false,
+        dataUrl: dataurl,
+        fieldSortable:false,
+        filterMult:false,
+        columnMenu:false,
+        local:'remote',
+        filterThead:false,
+        paging:{pageSize:10}
+	}" id="datagrid-audit-truck-filter">
+        <thead>
+        <tr>
+            <th data-options="{name:'id',align:'center'}" style="min-width: 30px">ID</th>
+            <th data-options="{name:'lic_number',align:'center'}" style="min-width: 100px">车牌号</th>
+            <th data-options="{name:'owner_name',align:'center'}" style="min-width: 100px">车主</th>
+            <th data-options="{name:'create_time',align:'center'}" style="min-width: 100px">注册日期</th>
+            <th data-options="{name:'maximum',align:'center'}" style="min-width: 50pt">吨位</th>
+            <th data-options="{name:'lic_date',align:'center'}" style="min-width: 100px">发证日期</th>
+            <th data-options="{name:'ins_date',align:'center'}" style="min-width: 100px">保险日期</th>
+            <th data-options="{name:'model',align:'center'}" style="min-width: 50pt">车型</th>
+            <th data-options="{name:'dostr',align:'center'}" style="min-width: 100px">操作</th>
+        </tr>
+        </thead>
+    </table>
+
+</div>
+<script>
+</script>

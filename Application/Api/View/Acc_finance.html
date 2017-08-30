@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content=""> 
+
+    <link rel="stylesheet" href="__PUBLIC__/finance/pure-min.css">
+    <link rel="stylesheet" href="__PUBLIC__/finance/mobile.css">
+
+        <title>资金融资</title>
+
+    <style>
+        body {
+            background: #f8f8f8;
+        }
+        /*去掉自带的margin-bottom*/
+        #reg-form div input{
+            /*box-shadow:none;*/
+            /*-webkit-box-shadow: none;*/
+            /*border: 1px solid #ddd;*/
+            margin:0;
+            font-size: 1rem;
+            background-color: #eeeeee;
+        }
+        #reg-form label{
+            margin:0;
+            font-size: 1rem;
+            color: #999999;
+        }
+        .line_header{
+            border-bottom:#c2c2c2 solid 1px;
+        }
+        .hint{
+            padding: 1rem;
+            color: #999999;
+            line-height: 1.5rem;
+            font-size: 1rem;
+        }
+        .form-line{
+            margin-top: 1rem;
+        }
+        .form-content{
+            padding:1rem ;
+            background-color:white;
+            border-top:#dddddd solid 1px;
+            border-bottom:#dddddd solid 1px;
+        }
+        .form-label{
+            line-height: 2.1;
+        }
+        .location{
+            position: relative;
+        }
+        .formDel{
+            visibility: hidden;
+            position: absolute;
+            display: block;
+            width: 1rem;
+            height: 1rem;
+            right: 0.5rem;
+            top: 0.5rem;
+            background: url('/images/m/input_delete.png') no-repeat center;
+            background-size: 1rem 1rem;
+        }
+        #reg-form label.moneyLabel{
+            color: black;
+            position: absolute;
+            display: block;
+            width: 2rem;
+            height: 1rem;
+            right: 0.5rem;
+            top: 0.5rem;
+        }
+        .btn_apply{
+            margin-left: 1rem;
+            margin-right: 1rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: #ff6d27;
+            text-align: center;
+            overflow: hidden;
+            padding: .87rem 0;
+            display: block;
+        }
+        .errorMsg{
+            color: red;
+            font-size: 1rem;
+            text-align: right;
+            margin-top: 0.5rem;
+            display: none;
+        }
+    </style>
+
+<script type="text/javascript" charset="utf-8" async data-requirecontext="_" data-requiremodule="mcommon" src="__PUBLIC__/finance/mcommon.js"></script>
+<script type="text/javascript" charset="utf-8" async data-requirecontext="_" data-requiremodule="zepto" src="__PUBLIC__/finance/zepto.js"></script>
+</head>
+<body data-ext-version="1.4.2">
+    <div id="finance-div">
+        <div id="reg-form">
+
+            <div class="m-header line_header" style="position: relative;">
+                <a id="back" href="javascript:void(0)">
+                    <span id="regBackImg" class="headerImg leftImg backImg"></span>
+                </a>
+                <h2>融资申请</h2>
+            </div>
+
+            <div class="hint">
+                请填写相关资料，我们收到之后会第一时间给您反馈，解决您的资金需求。
+            </div>
+
+            <div>
+                <form class="pure-form" id="contact-form" method="post" action="{:U('addFinance')}">
+                    <div class="form-content">
+                        <div class="pure-g">
+                            <div class="pure-u-1-3">
+                                <label for="companyname" class="form-label">公司名称</label>
+                            </div>
+                            <div class="pure-u-2-3 location">
+                                <input id="company" name="company" type="text" placeholder="最多输入50个字" class="pure-input-1" maxlength="50">
+                                <a href="javascript:void(0)" class="formDel" id="companynameDel"></a>
+                            </div>
+                            <span class="pure-u-1 errorMsg" id="companynameError">
+                                请输入公司名称
+                            </span>
+                        </div>
+
+                        <div class="pure-g form-line">
+                            <div class="pure-u-1-3">
+                                <label for="address" class="form-label">公司地址</label>
+                            </div>
+                            <div class="pure-u-2-3 location">
+                                <input id="address" name="address" type="text" placeholder="最多输入50个字" class="pure-input-1" maxlength="50">
+                                <a href="javascript:void(0)" class="formDel" id="addressDel"></a>
+                            </div>
+                            <span class="pure-u-1 errorMsg" id="addressError">
+                                请输入公司地址
+                            </span>
+                        </div>
+
+                        <div class="pure-g form-line">
+                            <div class="pure-u-1-3">
+                                <label for="businessarea" class="form-label">业务区域</label>
+                            </div>
+                            <div class="pure-u-2-3 location">
+                                <input id="business" name="business" type="text" placeholder="最多输入50个字" class="pure-input-1" maxlength="50">
+                                <a href="javascript:void(0)" class="formDel" id="businessareaDel"></a>
+                            </div>
+                            <span class="pure-u-1 errorMsg" id="businessareaError">
+                                请输入业务区域
+                            </span>
+                        </div>
+
+                        <div class="pure-g form-line">
+                            <div class="pure-u-1-3">
+                                <label for="amountnum" class="form-label">融资金额</label>
+                            </div>
+                            <div class="pure-u-2-3 location">
+                                <input id="amountnum" name="num" type="text" placeholder="请输入融资金额" class="pure-input-1">
+                                <label for="amountnum" class="moneyLabel">万元</label>
+                            </div>
+                            <span class="pure-u-1 errorMsg" id="amountnumError">
+                                请输入融资金额
+                            </span>
+                        </div>
+
+                        <div class="pure-g form-line">
+                            <div class="pure-u-1-3">
+                                <label for="contact" class="form-label">联系人</label>
+                            </div>
+                            <div class="pure-u-2-3 location">
+                                <input id="name" name="name" type="text" placeholder="请输入联系人" class="pure-input-1" maxlength="50">
+                                <a href="javascript:void(0)" class="formDel" id="contactDel"></a>
+                            </div>
+                            <span class="pure-u-1 errorMsg" id="contactError">
+                                请输入联系人
+                            </span>
+                        </div>
+
+                        <div class="pure-g form-line">
+                            <div class="pure-u-1-3">
+                                <label for="phone" class="form-label">联系电话</label>
+                            </div>
+                            <div class="pure-u-2-3 location">
+                                <input id="phone" name="tel" type="text" placeholder="请输入联系电话" class="pure-input-1">
+                                <a href="javascript:void(0)" class="formDel" id="phoneDel"></a>
+                            </div>
+                            <span class="pure-u-1 errorMsg" id="phoneError">
+                                请输入联系电话
+                            </span>
+                        </div>
+                        <div class="pure-g form-line">
+                            <div class="pure-u-1-3">
+                                <label for="phone" class="form-label">图片验证码</label>
+                            </div>
+                            <div class="pure-u-2-3 location">
+                                <input id="imagecode" name="imagecode" type="text" placeholder="请输入图片验证码" class="pure-input-1">
+                                <label class="moneyLabel" style="margin: -5px -7px 2px 0;">
+                                    <a href="javascript:(document.getElementById(&#39;verifycode&#39;).src=&#39;{:U('showVerify1','','')}?date=&#39;+new Date().getTime()) &amp;&amp; void(0);" class="moneyLabel" style="position:absolute;right: 2px;z-index: 99; ">
+                                        <img src="{:U('showVerify1')}" style="width:110px;" id="verifycode" style="height: auto;">
+                                    </a>
+                                </label>
+                            </div>
+                            <span class="pure-u-1 errorMsg" id="imagecodeError">
+                                请输入图片验证码
+                            </span>
+                        </div>
+                                                      
+                           
+                        <div class="pure-g form-line">
+                            <span class="pure-u-1 errorMsg" id="systemError" style="word-wrap: break-word; word-break: normal;">
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="location">
+                        <input type="submit" class="btn_apply" value="我要融资" style="background:#F90; width:100%; border:none;"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!--login-->
+    <input id="gotoUrl" name="gotoUrl" type="hidden">
+
+    <!-- showModal begin  -->
+    
+    <div class="md-overlay"></div>
+    <!-- showModal end -->
+
+    <!-- 不带关闭按钮的纯白提示框 -->
+    
+    <div class="md-overlay"></div>
+    <!-- showModal end -->
+
+    <!-- modal 1 with 2 buttons begin (cancel btn:close modal & unbind submit btn) -->
+    <div class="md-modal md-effect-1" id="modal-1">
+        <div class="md-modal-content">
+            <button id="md-btn-1" class="md-right-close md-close md-off closeBg"></button>
+                <div id="modal-content" class="md-newContent">
+                </div>
+                    <button id="md-btn-2" class="md-modal-btn pure-button">确&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;认</button>
+        </div>
+    </div>
+    <div class="md-overlay"></div>    <!-- modal 1 end -->
+
+    <!-- modal msg with no button begin (loading) -->
+    <div class="md-modal md-effect-1" id="modal-msg">
+        <div class="md-content">
+            <div id="md-msg-body">
+                <div id="modal-msg-content">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="md-overlay"></div>
+    <!-- modal msg with no button end -->
+
+    <!--login modal-->
+    <div class="md-modal md-effect-1" id="modal-login">
+        <div class="md-content">
+            <div id="md-body">
+                <div id="modal-content">
+                    <form class="pure-form" id="login_form">
+                        <input id="gotoUrl" name="gotoUrl" type="hidden">
+                        <fieldset>
+                            <legend>用户登录</legend>
+                            <span id="summaryInfo"></span>
+                            <div class="main">
+                                <input type="text" id="userName" class="pure-input-1" placeholder="请输入手机号码">
+                            </div>
+                            <br>
+
+                            <div class="main">
+                                <input type="password" id="userPwd" name="userPwd" class="pure-input-1" placeholder="请输入密码">
+                            </div>
+                        </fieldset>
+                        <div class="m-tCenter">
+                            <button type="button" id="btn_cancel" class="pure-button m-button pure-button-primary">取消
+                            </button>
+                            <button type="button" id="btn_login" class="pure-button m-button pure-button-primary">登录
+                            </button>
+                            </div>
+                        <div class="m-a m-tCenter">
+                            <a href="javascript:void(0);" id="forgetPwd">忘记密码</a>
+                            <a href="http://wap.yimei180.com/m/reg">注册账号</a>
+                            </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+
+    <script type="text/javascript" src="__PUBLIC__/finance/require.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/finance/mconfig.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/finance/modal.js"></script>
+
+    <script type="text/javascript" src="__PUBLIC__/finance/finance.js"></script>
+
+
+</body></html>

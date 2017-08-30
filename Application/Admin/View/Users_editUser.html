@@ -1,0 +1,271 @@
+<div class="pageContent">
+    <form action="<{:U('Admin/Users/editUser')}>" id="admin_edit_user" data-toggle="validate" data-alertmsg="false" method="post">
+        <div style="margin: 0 auto;width:500pt;padding: 30pt">
+            <div class="bjui-row">
+                <input type="hidden" name="id" value="<{$info.id}>">
+                <label class="row-label">头像：</label>
+                <div class="row-input required">
+                    <input type="file" name="photo" data-name="photo" data-toggle="webuploader" data-options="
+                    {
+                        pick: {label: '点击选择图片'},
+                        server: '<{:U('Api/Common/uploadImg')}>',
+                        fileNumLimit: 1,
+                        formData: {dir:'custompic'},
+                        required: true,
+                        uploaded: '<{$info.photo|getTrueImgSrc}>',
+                        basePath: '',
+                        accept: {
+                            title: '图片',
+                            extensions: 'jpg,png',
+                            mimeTypes: '.jpg,.png'
+                        }
+                    }">
+                </div>
+                <label class="row-label">账号：</label>
+                <div class="row-input">
+                    <{$info.account}>
+                </div>
+                <label class="row-label">密码：</label>
+                <div class="row-input">
+                    <input type="text" name="password" value="" placeholder="留空则不修改密码">
+                </div>
+                <label class="row-label">手势密码：</label>
+                <div class="row-input">
+                    <input type="text" name="gesture_cipher" value="<{$info.gesture_cipher}>">
+                </div>
+                <label class="row-label">手势密码锁定：</label>
+                <div class="row-input">
+                    <if condition="$info.gesture_lock eq 1">
+                        <select name="gesture_lock">
+                            <option value="0">正常</option>
+                            <option value="1" selected>锁定</option>
+                        </select>
+                    <else/>
+                        <select name="gesture_lock">
+                            <option value="0" selected>正常</option>
+                            <option value="1">锁定</option>
+                        </select>
+                    </if>
+                </div>
+                <label class="row-label">昵称：</label>
+                <div class="row-input">
+                    <input type="text" name="real_name" value="<{$info.real_name}>">
+                </div>
+                <label class="row-label">性别：</label>
+                <div class="row-input">
+                    <php>$sex = array(1,2,3)</php>
+                    <volist name="sex" id="vo">
+                        <input type="radio" name="sex" id="sex_<{$vo}>" <if condition="$vo eq $info['sex']">checked</if> value="<{$vo}>" data-toggle="icheck" data-label="<switch name="vo">
+                        <case value="1">男</case>
+                        <case value="2">女</case>
+                        <default />未知
+                        </switch>">
+                    </volist>
+                </div>
+                <label class="row-label">手机：</label>
+                <div class="row-input">
+                    <input type="text" name="phone" value="<{$info.phone}>" data-rule="required">
+                </div>
+                <label class="row-label">用户地址：</label>
+                <div class="row-input required" >
+                    <div class="col-sm-4" style="min-width:110px">
+                        <select class="form-control m-b" id="edi-address-province" name="province">
+                            <foreach name='province' item='vo'>
+                                <option <if condition="$vo eq $info['province']">selected</if> value="<{$vo}>"><{$vo}></option>
+                            </foreach>
+                        </select>
+                    </div>
+                    <div class="col-sm-4"  style="min-width:110px">
+                        <select class="form-control m-b" id="edi-address-city" name="city">
+                            <foreach name='cities' item='vo'>
+                                <if condition="$vo eq $info['city']">
+                                    <option value="<{$vo}>" selected><{$vo}></option>
+                                    <else/>
+                                    <option value="<{$vo}>" ><{$vo}></option>
+                                </if>
+                            </foreach>
+                        </select>
+                    </div>
+                    <div class="col-sm-4"  style="min-width:110px">
+                        <select class="form-control m-b" id="edi-address-area" name="area">
+                            <foreach name='area' item='vo'>
+                                <if condition="$vo eq $info['area']">
+                                    <option value="<{$vo}>" selected><{$vo}></option>
+                                    <else/>
+                                    <option value="<{$vo}>" ><{$vo}></option>
+                                </if>
+                            </foreach>
+                        </select>
+                    </div>
+                    <div class="col-sm-12"  style="min-width:300px;margin-top: 10px;">
+                        <input type="text" class="form-control m-b" id="edi-address-detail" name="detail" value="<{$info.detail}>" placeholder="详细地址"/>
+                    </div>
+                </div>
+                <label class="row-label"  >地图位置：</label>
+                <div class="row-input required">
+                    <input id="edi-company-gps" type="hidden" name="gps" value="<{$info.add_gps.x}>,<{$info.add_gps.y}>" data-rule="required">
+                    <input  style="display: none;" id="edi-company-address" value="" name="address"/>
+                    <div id="edi-company-message" style="font-size:90%; color:#900;margin-top: 10pt;"></div>
+                    <div id="edi-edit-company-address" class="form-control" style="height:300px;" tabindex="0"></div>
+                </div>
+            </div>
+            <hr style="margin:5px 0 15px;">
+            <div class="text-center">
+                <button type="submit" class="btn-default btn">保存</button>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- 高德地图 -->
+
+<script>
+    var gps_x=" <?php  echo  $info['local_gps']['x'] ?>";
+    var gps_y=" <?php  echo  $info['local_gps']['y'] ?>";
+
+    console.log(gps_x);
+    console.log(gps_y);
+    $(function () {
+        // 公司地址
+        var map = new AMap.Map('edi-edit-company-address',{
+            resizeEnable: true,
+            zoom: 13,
+            center: [gps_x,gps_y]
+        });
+
+        var gps = document.getElementById('edi-company-gps'); // gps  Input框的对象
+        var searchinput = document.getElementById('edi-company-address');  // address  Input框的对象
+
+        AMap.plugin('AMap.Geocoder',function(){
+            var geocoder = new AMap.Geocoder({
+                city: "0"//城市，默认：“全国”
+            });
+            var marker = new AMap.Marker({
+                map:map,
+                bubble:true
+            });
+
+            //点击地图事件
+            map.on('click',function(e){
+                marker.setPosition(e.lnglat);
+                gps.value=e.lnglat;
+                geocoder.getAddress(e.lnglat,function(status,result){
+                    var msg = '';
+                    if(status=='complete'){
+                        searchinput.value = result.regeocode.formattedAddress
+                    }else{
+                        msg = '无法获取地址';
+                    }
+                    $('#edi-company-message').html(msg);
+                })
+            });
+
+            //输入框定位事件
+            searchinput.onchange = function(e){
+                var address = searchinput.value;
+                geocoder.getLocation(address,function(status,result){
+                    var msg = '';
+                    if(status=='complete'&&result.geocodes.length){
+                        marker.setPosition(result.geocodes[0].location);
+                        map.setCenter(marker.getPosition());
+                        gps.value=marker.getPosition();
+                    } else {
+                        msg = '自动位失败，请更换地址输入，或者手动选择';
+                    }
+                    $('#edi-company-message').html(msg);
+                })
+            }
+
+        });
+    });
+
+</script>
+
+<script>
+    var address='';
+    $(document).ready(function(){
+        console.log($("#edi-address-detail").val());
+        var ead_val = $("#edi-address-detail").val();
+        if (ead_val && ead_val != 0) {
+            //地图定位
+            address=$("#edi-address-province").val()+$("#edi-address-city").val()+$("#edi-address-area").val()+$("#edi-address-detail").val();
+            searchinput = document.getElementById('edi-company-address');
+            searchinput.value=address;
+            searchinput.onchange();
+        }
+        ead_val = '';
+
+        //获取市区列表
+        $('#edi-address-province').change(function(){
+            $.post(
+                "<{:U('Api/Add/getShiqu')}>",
+                {province:$('#edi-address-province').val()},
+                function(data){
+
+                    shiqu=jQuery.parseJSON(data);
+
+                    var html='';
+                    var shiqu = shiqu.data;
+                    //循环处理
+                    $.each(shiqu,function(index,value){
+                        html=html+"<option value='"+value+"'>"+value+"</option>";
+                    })
+
+                    //地图定位
+                    address=$("#edi-address-province").val(); // 当前省
+                    searchinput = document.getElementById('edi-company-address');// 公司地址栏
+                    searchinput.value=address;
+                    searchinput.onchange();
+
+                    $("#edi-address-area").val('');
+                    $("#edi-address-detail").val('');
+                    $("#edi-address-city").empty().append(html).show();
+                }
+            );
+        })
+        //获取地区列表
+        $("#edi-address-city").change(function(){
+            $.post(
+                "<{:U('Api/Add/getDiqu')}>",
+                {
+                    province:$('#edi-address-province').val(),
+                    shiqu:$("#edi-address-city").val()
+                },
+                function(data){
+                    shiqu=jQuery.parseJSON(data);
+                    var html='';
+                    var shiqu = shiqu.data;
+                    //循环处理
+                    $.each(shiqu,function(index,value){
+                        html=html+"<option value='"+value+"'>"+value+"</option>";
+                    })
+                    //地图定位
+                    address=$("#edi-address-province").val()+$("#edi-address-city").val();
+                    searchinput = document.getElementById('edi-company-address');
+                    searchinput.value=address;
+                    searchinput.onchange();
+
+                    $("#edi-address-detail").val('');
+                    $("#edi-address-area").empty().append(html).show();
+                }
+            );
+        })
+        //显示详细地址输入框
+        $("#edi-address-area").change(function(){
+            //地图定位
+            address=$("#edi-address-province").val()+$("#edi-address-city").val()+$("#edi-address-area").val();
+            searchinput = document.getElementById('edi-company-address');
+            searchinput.value=address;
+            searchinput.onchange();
+
+            $("#edi-address-detail").show();
+        })
+        //详细地址修改相应处理
+        $("#edi-address-detail").change(function(){
+            //地图定位
+            address=$("#edi-address-province").val()+$("#edi-address-city").val()+$("#edi-address-area").val()+$("#edi-address-detail").val();
+            searchinput = document.getElementById('edi-company-address');
+            searchinput.value=address;
+            searchinput.onchange();
+        })
+    });
+</script>

@@ -1,0 +1,82 @@
+/* CSS Document */
+.photo_ico{
+    font-size:80px;
+    position:relative;
+    border:#666  dashed 2px;
+    padding:20px;
+    vertical-align:bottom;
+}
+.photo_file{
+    display:inline !important;
+    position:relative;
+    left:-100px;
+    width:68px;
+}
+.photo_img{
+    padding:5px;
+    height:150px;
+    margin:10px;
+    vertical-align:bottom;}
+.photo_img_div{
+    display:none;
+}
+.photo_img_del{
+    position:relative;
+    left:-85px;
+    display:inline !important;}
+.lic_ico{
+    font-size: 180px;
+    position: relative;
+    border: #666 dashed 2px;
+    padding: 20px 124px;
+    vertical-align: bottom;
+}
+.lic_file{
+    display: inline !important;
+    position: relative;
+    left: -300px;
+    width: 68px;
+    top: -23px;
+}
+.lic_img_del{
+    position:relative;
+    left:-85px;
+    display:inline !important;}
+.lic_img{
+    padding:5px;
+    height:300px;
+    margin:10px;
+    vertical-align:bottom;}
+.lic_img_div{
+    display:none;
+}
+
+
+.idcard_ico{
+    font-size: 180px;
+    position: relative;
+    border: #666 dashed 2px;
+    padding: 20px 124px;
+    vertical-align: bottom;
+}
+.idcard_file{
+    display: inline !important;
+    position: relative;
+    left: -249px;
+    width: 68px;
+    top: -23px;
+}
+.idcard_img_del{
+    position:relative;
+    left:-85px;
+    display:inline !important;}
+.idcard_img{
+    padding:5px;
+    height:190px;
+    margin:10px;
+    vertical-align:bottom;}
+.idcard_img_div{
+    display:none;
+}
+#address_s,#address_q,#address_d{
+    display:none;}

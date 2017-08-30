@@ -1,0 +1,176 @@
+<script>
+    var pic_url = '<{$info.picture|getTrueImgSrc}>';
+    if (<{$info['picture1']?1:0}>) {
+        pic_url = pic_url+',<{$info['picture1']|getTrueImgSrc}>,<{$info['picture2']|getTrueImgSrc}>';
+    }
+</script>
+<div class="pageContent" style="top:0;bottom:0;height:100%;overflow: auto">
+    <form action="<{:U('Admin/News/editNews')}>" id="j_custom_form_edit_news" data-toggle="validate" data-alertmsg="false" style="max-width:850pt;height:100%;padding:20pt">
+    <!--<form id="j_custom_form_edit_news" data-toggle="validate" data-alertmsg="false" style="max-width:850pt;height:100%;padding:20pt">-->
+        <input type="hidden" name="id" value="<{$info.id}>">
+        <div class="bjui-row">
+            <label class="row-label">新闻类型：</label>
+            <div class="row-input required" id="news-edit-type">
+                <input type="radio" name="type" id="j_custom_type1" data-toggle="icheck" value="1"
+                       data-rule="" data-label="宏观资讯">
+                <input type="radio" name="type" id="j_custom_type2" data-toggle="icheck" value="2"
+                       data-label="矿区资讯">
+                <input type="radio" name="type" id="j_custom_type3" data-toggle="icheck" value="3"
+                       data-label="轻松一刻">
+            </div>
+        </div>
+        <div class="bjui-row">
+            <label class="row-label">展示方式：</label>
+            <div class="row-input required" id="news-edit-show_type">
+                <input type="radio" name="show_type" id="j_custom_stype1" data-toggle="icheck" value="1"
+                       data-rule="" data-label="图文排列">
+                <input type="radio" name="show_type" id="j_custom_stype2" data-toggle="icheck" value="2"
+                       data-label="三张图片">
+                <input type="radio" name="show_type" id="j_custom_stype3" data-toggle="icheck" value="3"
+                       data-label="一张大图">
+                <input type="radio" name="show_type" id="j_custom_stype4" data-toggle="icheck" value="4"
+                       data-label="视频格式">
+            </div>
+        </div>
+        <div class="bjui-row">
+            <label class="row-label">新闻标题：</label>
+            <div class="row-input required">
+                <input type="text" name="title" value="<{$info.title}>" data-rule="required">
+            </div>
+        </div>
+        <div class="bjui-row">
+            <label class="row-label">文章来源：</label>
+            <div class="row-input required">
+                <input type="text" name="source" value="<{$info.source}>" data-rule="required">
+            </div>
+        </div>
+        <div class="bjui-row">
+            <label class="row-label">作者：</label>
+            <div class="row-input required">
+                <input type="text" name="writer" value="<{$info.writer}>" data-rule="required">
+            </div>
+        </div>
+        <div class="bjui-row">
+            <label class="row-label">文章配图：</label>
+            <div class="row-input required picture-box">
+                <input type="file" data-name="pic" data-toggle="webuploader" data-options="
+            {
+                pick: {label: '点击选择图片'},
+                server: '<{:U('Api/Common/uploadImg')}>',
+                fileNumLimit: 3,
+                formData: {dir:'custompic'},
+                required: true,
+                uploaded: pic_url,
+                basePath: '',
+                accept: {
+                    title: '图片',
+                    extensions: 'jpg,png,mp4',
+                    mimeTypes: '.jpg,.png,.mp4'
+                }
+            }">
+                <span>展示方式为三张图片时，需上传三张图片，其他则上传第一张图片</span>
+            </div>
+        </div>
+        <div class="bjui-row">
+            <label class="row-label">文章视频地址：</label>
+            <div class="row-input">
+                <input type="file" data-name="video" data-toggle="webuploader" data-options="
+                {
+                    pick: {label: '点击选择视频'},
+                    server: '<{:U('Api/Common/uploadImg')}>',
+                    fileNumLimit: 1,
+                    formData: {dir:'custompic'},
+
+                    uploaded: '',
+                    basePath: '',
+                    accept: {
+                        title: '视频',
+                        extensions: 'mov,mp4',
+                        mimeTypes: '.mov,.mp4'
+                    }
+                }">
+            </div>
+        </div>
+        <div class="bjui-row">
+            <label class="row-label">已上传视频地址：</label>
+            <div class="row-input">
+                <input type="text" name="video1" value="<{$info.video}>">
+            </div>
+        </div>
+        <div class="bjui-row">
+            <label class="row-label">文章摘要：</label>
+            <div class="row-input">
+                <textarea name="description" id=""><{$info.description}></textarea><span>展示方式为图文展示时必填，字数不能超过100个</span>
+            </div>
+        </div>
+        <div class="bjui-row">
+            <label class="row-label">文章主体：</label>
+            <div class="row-input">
+                <div class="col-sm-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-content no-padding">
+                            <if condition="$info['is_html'] eq 1">
+                                <textarea name="content" style="resize: none;width: 600px;height:700px"><{$info.body}></textarea>
+                            <else/>
+                                <script id="editor1" name="content" type="text/plain"><{$info.body|htmlspecialchars_decode}></script>
+                                <!--百度编辑器-->
+                                <script type="text/javascript" charset="utf-8" src="__HPLUS__/js/plugins/UEditor/ueditor.config.js"></script>
+                                <script type="text/javascript" charset="utf-8" src="__HPLUS__/js/plugins/UEditor/ueditor.all.min.js"> </script>
+                                <script type="text/javascript" charset="utf-8" src="__HPLUS__/js/plugins/UEditor/lang/zh-cn/zh-cn.js"></script>
+                                <script type="text/javascript">
+                                    var ue = '';
+                                    ue = UE.getEditor('editor1');
+                                </script>
+                            </if>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr style="margin:5px 0 15px;">
+        <div class="text-center">
+            <button type="submit" class="btn-default btn">提交</button>
+        </div>
+    </form>
+</div>
+
+<script>
+//    var win_h = $(window).height();
+//    $('#j_custom_form_edit_news').css({'height':win_h - 140, 'overflow-y':'auto'});
+
+    $("#j_custom_type<{$info.type}>").attr('checked', true);
+    $("#j_custom_stype<{$info.show_type}>").attr('checked', true);
+
+
+//    $("#j_custom_form_edit_news").submit(function (e) {
+//
+//        var data = $(this).serialize(), flag = false;
+//
+//        function postData(data) {
+//            $.post("<{:U('Admin/News/editNews')}>", data, function (res) {
+//                var data = JSON.parse(res);
+//                if (data.statusCode == 200) {
+//                    $(".navtab-News_funtime a").trigger("click");
+//                }
+//            });
+//        }
+//        console.log(data);
+//
+//        if (data.search(/show\_type\=2/i) >= 0) {
+//            var imgs = $(this).find(".picture-box").find(".filelist").children();
+//            if (imgs.length == 3) {
+//                postData(data);
+//            }
+//        }else{
+//            postData(data);
+//        }
+//
+//
+//    });
+
+
+
+
+
+
+</script>

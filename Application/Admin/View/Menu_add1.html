@@ -1,0 +1,82 @@
+<div class="pageContent" style="overflow-y:scroll;">
+    <form action="<{:U('Admin/Menu/add1')}>" id="j_menu_add1_form" data-toggle="validate" data-alertmsg="false" method="post">
+        <div style="margin: 0 auto;max-width:500pt;float: left;padding: 30pt;">
+            <div class="bjui-row col-1">
+                <label class="row-label">菜单位置：</label>
+                <div class="row-input">
+                    <select name="is_admin" data-toggle="selectpicker"  id="menu_add1_ia1">
+                        <option value="0">（企业版）Vip端</option>
+                        <option value="1">(煤问题总后台)Admin端</option>
+                    </select>
+                </div>
+                <div class="row-input">
+                    <select name="level" id="menu_add1_level1">
+                        <option value="0">一级菜单</option>
+                        <option value="1">二级菜单</option>
+                    </select>
+                </div>
+                <!--<div class="row-input" style="display: none;">-->
+                    <!--<select name="pid" id="menu_add1_pid" data-toggle="selectpicker">-->
+                        <!--<option value="0">一级菜单</option>-->
+                        <!--<option value="1">二级菜单</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+                <label class="row-label">控制器名：</label>
+                <div class="row-input">
+                    <input type="text" name="name" id="">
+                </div>
+                <label class="row-label">控制器标题：</label>
+                <div class="row-input">
+                    <input type="text" name="title" id="">
+                </div>
+                <label class="row-label">方法名：</label>
+                <div class="row-input">
+                    <select name="is_admin" data-toggle="selectpicker">
+                        <option value="0">（企业版）Vip端</option>
+                        <option value="1">(煤问题总后台)Admin端</option>
+                    </select>
+                </div>
+            </div>
+            <volist name="auth_info" id="vo">
+                <!-- <input type="checkbox" name="ruleids[]" id="j_form_checkbox<{$vo.id}>" value="<{$vo.id}>" data-toggle="icheck" data-label="<{$vo.title}>" <php>if(in_array($vo['id'], $rules_array)){echo 'checked';}</php>><br/> -->
+                <!-- <p><{$vo.title}></p><br/> -->
+                <volist name="vo['list']" id="vo2">
+                    <!-- &nbsp;&nbsp;<input type="checkbox" name="ruleids[]" id="j_form_checkbox<{$vo2.id}>" value="<{$vo2.id}>" data-toggle="icheck" data-label="<{$vo2.title}>" <php>if(in_array($vo2['id'], $rules_array)){echo 'checked';}</php>><br/> -->
+                    &nbsp;&nbsp;<p><strong><{$vo2.title}></strong></p><br/>
+                    <div>
+                    <volist name="vo2['list']" id="vo3">
+                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="ruleids_level3[]" id="j_form_checkbox<{$vo3.id}>" value="<{$vo3.id}>" data-toggle="icheck" data-label="<{$vo3.title}>"><span style="width:50;display: inline-block;"></span>
+                    </volist>
+                    </div>
+                    <br/>
+                </volist>
+                <hr>
+            </volist>
+            <hr style="margin:5px 0 15px;">
+            <div class="text-center">
+                <button type="submit" class="btn-default btn">提交</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+var h = $(window).height() - 100;
+$('.pageContent').css('height',h);
+
+// 请求一级菜单
+$('#menu_add1_ia1').change(function () {
+    var ia = $(this).val();
+    $.post('<{:U('Admin/Menu/getMenu')}>',{'is_admin':ia,'level':1},function (msg) {
+        $('#menu_add1_level1').empty();
+        var html = '';
+
+        for (var i in msg) {
+            console.log(msg[i]);
+            if (msg[i]['id'] > 0) {
+                html += '<option value="'+msg[i]['id']+'">'+msg[i]['title']+'</option>';
+            }
+        }
+        $('#menu_add1_level1').html(html);
+    },'json');
+});
+</script>

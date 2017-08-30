@@ -1,0 +1,196 @@
+<?xml version="1.0" ?>
+<definitions name="soap" targetNamespace="urn:soap" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:soap" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+    <types xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <portType name="soapPort"><operation name="server">
+        <input message="tns:serverRequest" />
+        <output message="tns:serverResponse" />
+    </operation>
+        <operation name="acceptRebill">
+            <input message="tns:acceptRebillRequest" />
+            <output message="tns:acceptRebillResponse" />
+        </operation>
+        <operation name="changeBure">
+            <input message="tns:changeBureRequest" />
+            <output message="tns:changeBureResponse" />
+        </operation>
+        <operation name="make_wsdl">
+            <input message="tns:make_wsdlRequest" />
+            <output message="tns:make_wsdlResponse" />
+        </operation>
+        <operation name="__set">
+            <input message="tns:__setRequest" />
+            <output message="tns:__setResponse" />
+        </operation>
+        <operation name="get">
+            <input message="tns:getRequest" />
+            <output message="tns:getResponse" />
+        </operation>
+        <operation name="__get">
+            <input message="tns:__getRequest" />
+            <output message="tns:__getResponse" />
+        </operation>
+        <operation name="__isset">
+            <input message="tns:__issetRequest" />
+            <output message="tns:__issetResponse" />
+        </operation>
+        <operation name="__call">
+            <input message="tns:__callRequest" />
+            <output message="tns:__callResponse" />
+        </operation>
+        <operation name="__destruct">
+            <input message="tns:__destructRequest" />
+            <output message="tns:__destructResponse" />
+        </operation>
+    </portType>
+    <binding name="soapBinding" type="tns:soapPort">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+        <operation name="server">
+            <soap:operation soapAction="urn:soap#Home\Controller\WebserviceController#server" />
+            <input><soap:body use="encoded" namespace="urn:soap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:soap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="acceptRebill">
+            <soap:operation soapAction="urn:soap#Home\Controller\WebserviceController#acceptRebill" />
+            <input><soap:body use="encoded" namespace="urn:soap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:soap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="changeBure">
+            <soap:operation soapAction="urn:soap#Home\Controller\WebserviceController#changeBure" />
+            <input><soap:body use="encoded" namespace="urn:soap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:soap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="make_wsdl">
+            <soap:operation soapAction="urn:soap#Home\Controller\WebserviceController#make_wsdl" />
+            <input><soap:body use="encoded" namespace="urn:soap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:soap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="__set">
+            <soap:operation soapAction="urn:soap#Home\Controller\WebserviceController#__set" />
+            <input><soap:body use="encoded" namespace="urn:soap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:soap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="get">
+            <soap:operation soapAction="urn:soap#Home\Controller\WebserviceController#get" />
+            <input><soap:body use="encoded" namespace="urn:soap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:soap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="__get">
+            <soap:operation soapAction="urn:soap#Home\Controller\WebserviceController#__get" />
+            <input><soap:body use="encoded" namespace="urn:soap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:soap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="__isset">
+            <soap:operation soapAction="urn:soap#Home\Controller\WebserviceController#__isset" />
+            <input><soap:body use="encoded" namespace="urn:soap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:soap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="__call">
+            <soap:operation soapAction="urn:soap#Home\Controller\WebserviceController#__call" />
+            <input><soap:body use="encoded" namespace="urn:soap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:soap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="__destruct">
+            <soap:operation soapAction="urn:soap#Home\Controller\WebserviceController#__destruct" />
+            <input><soap:body use="encoded" namespace="urn:soap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:soap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+    </binding>
+    <service name="soap">
+        <documentation />
+        <port name="soapPort" binding="tns:soapBinding"><soap:address location="https://api2.meiwenti.top/Api/Webservice/server" />
+        </port>
+    </service>
+    <message name="serverRequest">
+    </message>
+    <message name="serverResponse">
+        <part name="server" type="xsd:string" />
+    </message>
+    <message name="acceptRebillRequest">
+        <part name="bill_number" type="xsd:string" />
+    </message>
+    <message name="acceptRebillResponse">
+        <part name="acceptRebill" type="xsd:map" />
+    </message>
+    <message name="changeBureRequest">
+        <part name="buyer" type="xsd:string" />
+        <part name="seller" type="xsd:string" />
+        <part name="coal_code" type="xsd:string" />
+        <part name="coal_type" type="xsd:string" />
+        <part name="time" type="xsd:string" />
+    </message>
+    <message name="changeBureResponse">
+        <part name="changeBure" type="xsd:string" />
+    </message>
+    <message name="make_wsdlRequest">
+    </message>
+    <message name="make_wsdlResponse">
+        <part name="make_wsdl" type="xsd:string" />
+    </message>
+    <message name="__setRequest">
+        <part name="name" type="xsd:string" />
+        <part name="value" type="xsd:string" />
+    </message>
+    <message name="__setResponse">
+        <part name="__set" type="xsd:string" />
+    </message>
+    <message name="getRequest">
+        <part name="name" type="xsd:string" />
+    </message>
+    <message name="getResponse">
+        <part name="get" type="xsd:string" />
+    </message>
+    <message name="__getRequest">
+        <part name="name" type="xsd:string" />
+    </message>
+    <message name="__getResponse">
+        <part name="__get" type="xsd:string" />
+    </message>
+    <message name="__issetRequest">
+        <part name="name" type="xsd:string" />
+    </message>
+    <message name="__issetResponse">
+        <part name="__isset" type="xsd:string" />
+    </message>
+    <message name="__callRequest">
+        <part name="method" type="xsd:string" />
+        <part name="args" type="xsd:string" />
+    </message>
+    <message name="__callResponse">
+        <part name="__call" type="xsd:string" />
+    </message>
+    <message name="__destructRequest">
+    </message>
+    <message name="__destructResponse">
+        <part name="__destruct" type="xsd:string" />
+    </message>
+</definitions>

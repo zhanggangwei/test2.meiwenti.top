@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>煤矿</title>
+    <script src="__PUBLIC__/B-JUI/js/vue/vue.min.js"></script>
+    <script src="__PUBLIC__/B-JUI/js/vue/vue-resource.min.js"></script>
+    <script src="__PUBLIC__/B-JUI/js/jquery-1.11.3.min.js"></script>
+    <script src="__PUBLIC__/B-JUI/plugins/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/B-JUI/js/vue/main.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/B-JUI/themes/css/bootstrap.min.css">
+    <style>
+        .box{overflow-x:hidden; padding:20px;}
+        .box-inner{max-width:1000px; min-width:600px; margin:0 auto;}
+        .card-body{padding:0;}
+        .card-body .table{margin:0; }
+        .save-all{position:fixed; right:50px; bottom:20px;}
+        .sort-input{border:1px solid #fff; width:50px; background:transparent; border-radius:6px; padding:2px 4px; margin-right:6px;}
+        .number-input{width:40px; display:inline-block; text-align:center;}
+        .invoice-all{width:80px; display:inline-block;}
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="box-inner">
+        <div class="item" v-for="(coal,index) in coals">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><input type="text" v-model="coal.sort" class="sort-input text-center" @change="refreshSort">{{coal.coalName}}</h3>
+                </div>
+                <div class="panel-body card-body">
+                    <table class="table table-bordered text-center table-striped">
+                        <thead>
+                        <tr>
+                            <th class="text-center">序号</th>
+                            <th class="text-center">煤种</th>
+                            <th class="text-center">价格</th>
+                            <th class="text-center">发票
+                                <div class="invoice-all">
+                                    <select v-model="coal.invoiceAll" class="form-control input-sm" name="" id="">
+                                        <option value="1">一票</option>
+                                        <option value="2">二票</option>
+                                        <option value="3">三票</option>
+                                    </select>
+                                </div>
+
+                            </th>
+                            <th class="text-center">是否显示</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr v-for="(coalType,index2) in coal.coalType">
+                            <td>
+                                <input type="text" class="form-control number-input" v-model="coalType.number">
+                            </td>
+                            <td>{{coalType.name}}</td>
+                            <td>
+                                <input v-model="coalType.price" class="form-control input-sm">
+                            </td>
+                            <td>
+                                <select v-model="coalType.invoice" name="invoice" id="" class="form-control input-sm">
+                                    <option value="1">一票</option>
+                                    <option value="2">二票</option>
+                                    <option value="3">三票</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select v-model="coalType.isShow" name="isShow" id="" class="form-control input-sm">
+                                    <option value="yes">是</option>
+                                    <option value="no">否</option>
+                                </select>
+                            </td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="5">
+                                <button class="btn btn-primary pull-right btn-sm" @click="post(coal)"> 保存 </button>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="panel panel-success">
+                <h2 class="text-center">
+                    <a href="#addCoalModal" class="text-success" data-toggle="modal">添加 <span class="glyphicon glyphicon-plus"></span></a>
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="save-all">
+        <button class="btn btn-primary btn-lg">
+            全部保存
+        </button>
+    </div>
+    <div class="modal fade" id="addCoalModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">
+                        <span class="close" data-dismiss="modal">&times;</span>
+                        添加煤矿
+                    </h3>
+                </div>
+                <div class="modal-body">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label>煤矿：</label>
+                            <select class="form-control" name="name">
+                                <option value="1">恒博煤矿</option>
+                                <option value="2">汇能一矿</option>
+                                <option value="3">阳堡渠煤矿</option>
+                                <option value="4">布尔洞煤矿</option>
+                                <option value="5">白家梁煤矿</option>
+                                <option value="6">李家渠煤矿</option>
+                                <option value="7">宝平湾煤矿</option>
+                                <option value="8">瑞德煤矿</option>
+                                <option value="9">聚能壕赖梁煤矿</option>
+                            </select>
+                        </div>
+                        <br><br>
+                        <div class="form-group">
+                            <label>煤种：</label>
+                            <select class="form-control" name="type">
+                                <option value="2">1号中块</option>
+                                <option value="1">1号大块</option>
+                                <option value="4">3号原煤</option>
+                                <option value="3">3号沫煤</option>
+                                <option value="17">一三</option>
+                                <option value="13">三六</option>
+                                <option value="7">中块</option>
+                                <option value="8">二五</option>
+                                <option value="15">五九</option>
+                                <option value="5">八零</option>
+                                <option value="11">六九</option>
+                                <option value="12">原煤</option>
+                                <option value="14">四九</option>
+                                <option value="6">大块</option>
+                                <option value="10">狗头块</option>
+                                <option value="9">粉煤</option>
+                                <option value="16">选块</option>
+                            </select>
+                        </div>
+                        <br><br>
+                        <div class="form-group">
+                            <label>价格：</label>
+                            <input type="text" class="form-control" name="price">
+                        </div>
+                        <br><br>
+                        <div class="form-group">
+                            <label>发票：</label>
+                            <select class="form-control" name="invoice">
+                                <option value="一票">一票</option>
+                                <option value="二票">二票</option>
+                                <option value="三票">三票</option>
+                            </select>
+                        </div>
+                        <br><br>
+                        <div class="form-group">
+                            <label>排序：</label>
+                            <input type="text" class="form-control" name="sort">
+                        </div>
+                        <br><br>
+                        <div class="form-group">
+                            <label>是否显示：</label>
+                            <select name="isShow" id="" class="form-control">
+                                <option value="yes">是</option>
+                                <option value="no">否</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" data-dismiss="modal">取消</button>
+                    <button class="btn btn-success">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

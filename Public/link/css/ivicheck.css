@@ -1,0 +1,20 @@
+/* CSS Document */
+.check_num,.check_true{
+	display:inline;
+	width:90%;
+	vertical-align:bottom;}
+/*成功图标*/
+.success_ico{
+	display:inline;
+	color:green;
+	font-size:22px;}
+/*失败图标*/
+.error_ico{
+	display:inline;
+	color:red;
+	font-size:22px;}
+/*必填图标*/
+.true_ico{
+	display:inline;
+	color:red;
+	font-size:14px;}

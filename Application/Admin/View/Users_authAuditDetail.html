@@ -1,0 +1,71 @@
+<div class="pageContent" style="overflow-y:auto">
+    <form action="<{:U('Admin/Users/authAuditDetail')}>" id="j_auth_audit_company" data-toggle="validate" data-alertmsg="false" method="post">
+        <div style="padding: 30pt 0">
+            <div class="bjui-row">
+                <input type="hidden" value="<{$info.id}>" name="id"/>
+                <label class="row-label">营业执照：</label>
+                <div class="row-input required">
+                    <notempty name="lic_number['src']">
+                        <a href="<{$lic_number.src}>" target="_blank"><img src="<{$lic_number.src}>" alt="没有图片" width="200px" height="150px"></a>
+                        <div class="do-class">
+                            <if condition="$lic_number['is_passed'] eq 1">
+                            <span style="color: green">该公司营业执照已经通过审核</span>
+                            <else/>
+                                <span style="color: red">该公司营业执照还未通过审核,请到待审公司列表处理</span>
+                            </if>
+                        </div>
+                    <else/>
+                        <span style="color:red">没有上传图片</span>
+                    </notempty>
+                </div>
+                <label class="row-label">运输许可证：</label>
+                <div class="row-input required">
+                    <notempty name="ys_lic['src']">
+                        <a href="<{$ys_lic.src}>" target="_blank"><img src="<{$ys_lic.src}>" alt="没有图片" width="200px" height="150px"></a>
+                        <div class="do-class">
+                            <if condition="$ys_lic['is_passed'] eq 1">
+                                <span style="color: green">该公司营业执照已经通过审核</span>
+                            <elseif condition="$ys_lic['is_passed'] eq 2"/>
+                                <span style="color: red">已经拒绝</span>
+                            <else/>
+                                <select name="deal1" data-toggle="selectpicker" data-width="200">
+                                    <option value="">不处理</option>
+                                    <option value="1">通过</option>
+                                    <option value="2">拒绝</option>
+                                </select>
+                            </if>
+                        </div>
+                        <else/>
+                        <span style="color:red">没有上传图片</span>
+                    </notempty>
+                </div>
+                <label class="row-label">企业法人身份证：</label>
+                <div class="row-input required">
+                    <notempty name="sf_lic['src']">
+                        <a href="<{$sf_lic.src}>" target="_blank"><img src="<{$sf_lic.src}>" alt="没有图片" width="200px" height="150px"></a>
+                        <div class="do-class">
+                            <if condition="$sf_lic['is_passed'] eq 1">
+                                <span style="color: green">该公司营业执照已经通过审核</span>
+                            <elseif condition="$sf_lic['is_passed'] eq 2"/>
+                                <span style="color: red">已经拒绝</span>
+                            <else/>
+                                <select name="deal2" data-toggle="selectpicker" data-width="200">
+                                    <option value="">不处理</option>
+                                    <option value="1">通过</option>
+                                    <option value="2">拒绝</option>
+                                </select>
+                            </if>
+                        </div>
+                        <else/>
+                        <span style="color:red">没有上传图片</span>
+                    </notempty>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-4 col-sm-offset-2">
+                        <button class="btn btn-primary" type="submit">保存内容</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

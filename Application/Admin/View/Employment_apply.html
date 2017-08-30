@@ -1,0 +1,68 @@
+<script>
+    var dataurl="<{:U('Admin/Employment/getApply')}>";
+</script>
+<div class="bjui-pageHeader" style="background-color:#fefefe; border-bottom:none;">
+    <form action="" data-toggle="ajaxsearch" data-options="{searchDatagrid:$.CurrentNavtab.find('#datagrid-apply-t-filter')}" id="apply-form">
+        <fieldset>
+            <legend style="font-weight:normal;">页头搜索：</legend>
+            <div style="margin:0; padding:1px 5px 5px;">
+                <span>手机：</span>
+                <input type="text" name="phone" class="form-control" size="15">
+
+                <!-- <span>账号：</span>
+                <input type="text" name="account" class="form-control" size="15"> -->
+                
+                <span>名字：</span>
+                <input type="text" name="name" class="form-control" size="15">
+
+                <div class="btn-group">
+                    <button type="submit" class="btn-green" data-icon="search">开始搜索！</button>
+                    <button type="reset" class="btn-orange" data-icon="times">重置</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<div class="pageContent" style="position:absolute;top:69pt;bottom: 40pt">
+    <!--<button type="button" class="btn btn-default" data-toggle="dialog" data-options="{id:'add_apply', url:'<{:U('Admin/Employment/addApply')}>', title:'添加求职信息'}">添加求职者</button>-->
+    <table class="table table-bordered" data-toggle="datagrid" data-options="{
+        height:'100%',
+        gridTitle: '求职列表',
+		 showLinenumber:false,
+        dataUrl: dataurl,
+        fieldSortable:false,
+        filterMult:false,
+        columnMenu:false,
+        local:'remote',
+        filterThead:false,
+        paging:{pageSize:10}
+	}" id="datagrid-apply-t-filter">
+        <thead>
+        <tr>
+            <th data-options="{name:'id',align:'center',width:50}">ID</th>
+            <th data-options="{name:'name',align:'center',width:100}">名字</th>
+            <th data-options="{name:'phone',align:'center',width:100}">电话</th>
+            <th data-options="{name:'age',align:'center',width:30}">年龄</th>
+            <!-- <th data-options="{name:'sex',align:'center',width:200}">性别</th> -->
+            <!-- <th data-options="{name:'name',align:'center',width:200}">申请职位</th> -->
+            <th data-options="{name:'sheng',align:'center',width:70}">省</th>
+            <th data-options="{name:'shi',align:'center',width:70}">市</th>
+            <th data-options="{name:'qu',align:'center',width:70}">区</th>
+            <th data-options="{name:'is_negotiable',align:'center',width:70,render:function(value){return value==1?'':'面议'}}">是否面议</th>
+            <th data-options="{name:'salary',align:'center',width:50}">薪资</th>
+            <th data-options="{name:'license',align:'center',width:50}">准驾车型</th>
+            <th data-options="{name:'other_info',align:'center',width:200}">个人简介</th>
+            <th data-options="{name:'push_time',align:'center',width:100}">添加日期</th>
+            <th data-options="{name:'is_passed',align:'center',width:70,render:function(value){return value==1?'已审核':'未审核'}}">审核状态</th>
+            <th data-options="{name:'dostr',align:'center',width:100}">操作</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+<script>
+    var win_h = $(window).height();
+//    $('#datagrid-company-truck-filter').css({'height':win_h - 140, 'overflow-y':'scroll'});
+    var win_w = $('.tabsPageHeader').width();
+    $('.pageContent').css({'width':win_w - 40, 'overflow-x':'scroll'});
+</script>

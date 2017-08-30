@@ -1,0 +1,87 @@
+<div class="pageContent">
+    <h3><{$info.title}></h3>
+    <p>发布者：<{$info.writer_id|getCompanyName}> 发布时间:<{$info.creat_time}></p>
+    <hr>
+    <table class="table table-bordered">
+        <tr>
+            <th>煤炭种类</th>
+            <th>低位热值</th>
+            <th>空干基挥发分</th>
+            <th>收到基硫分</th>
+            <th>全水分</th>
+            <th>收到基挥发分</th>
+            <th>空干基硫分</th>
+            <th>内水分</th>
+        </tr>
+        <tr>
+            <td><{$info.coal_type}></td>
+            <td><{$info.dwrz}></td>
+            <td><{$info.kgjhff}></td>
+            <td><{$info.sdjlf}></td>
+            <td><{$info.qsf}></td>
+            <td><{$info.sdjhff}></td>
+            <td><{$info.kgjlf}></td>
+            <td><{$info.nsf}></td>
+        </tr>
+        <tr>
+            <th>灰分</th>
+            <th>固定碳</th>
+            <th>G值</th>
+            <th>Y值</th>
+            <th>灰熔点</th>
+            <th>哈氏可磨</th>
+            <th>颗粒度</th>
+            <th>焦渣特征</th>
+        </tr>
+        <tr>
+            <td><{$info.hf}></td>
+            <td><{$info.gdt}></td>
+            <td><{$info.the_g}></td>
+            <td><{$info.the_y}></td>
+            <td><{$info.hrd}></td>
+            <td><{$info.hskm}></td>
+            <td><{$info.kld}></td>
+            <td><{$info.jztz}></td>
+        </tr>
+        <tr>
+            <th colspan="3">交货地点</th>
+            <th colspan="3">产地</th>
+            <th>交货时间开始日期</th>
+            <th>交货时间结束日期</th>
+        </tr>
+        <tr>
+            <td colspan="3"><{$info.del_address_p}><{$info.del_address_s}><{$info.del_address_q}></td>
+            <td colspan="3"><{$info.pro_address_q}><{$info.pro_address_s}><{$info.pro_address_q}></td>
+            <td><{$info.del_time_from}></td>
+            <td><{$info.del_time_to}></td>
+        </tr>
+        <tr>
+            <th>供货量</th>
+            <th>交货方式</th>
+            <th>检验机构</th>
+            <th>付款方式</th>
+            <th>价格</th>
+            <th>是否含税</th>
+            <th>结算方式</th>
+            <th>浏览量</th>
+        </tr>
+        <tr>
+            <td><{$info.quantity}></td>
+            <td><{$info.del_mode}></td>
+            <td><{$info.agency}></td>
+            <td><{$info.payment_mode}></td>
+            <td><{$info.del_price}></td>
+            <td><{$info.price_type==1?'不含税':'含税'}></td>
+            <td><{$info.settlement_mode}></td>
+            <td><{$info.click}></td>
+        </tr>
+        <tr>
+            <th colspan="7">备注信息</th>
+            <th>拨打电话次数</th>
+        </tr>
+        <tr>
+            <td colspan="7"><{$info.comment}></td>
+            <td><{$info.dialled}></td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,31 @@
+<div class="pageHeader">
+
+</div>
+
+<div class="pageContent">
+	<table class="table table-bordered" data-toggle="datagrid" data-options="{
+		
+        gridTitle : 'data 属性设置分页 文章列表',
+        showToolbar: true,
+        toolbarItem: 'all',
+        local: 'local',
+        dataUrl: './index.php/Home/Index/article',
+        editUrl: 'json/ajaxDone.json',
+        paging: {pageSize:2, pageCurrent:1},
+        linenumberAll: true,
+        sortAll: false
+	}">
+	    <thead>
+	        <tr>
+	            <th data-options="{name:'id',align:'center'}">ID</th>
+	            <th data-options="{name:'title',align:'center'}">标题</th>
+	            <th data-options="{name:'url',align:'center'}">详细</th>
+	        </tr>
+	    </thead>
+	</table>
+
+</div>
+
+<div class="pageFooter">
+	
+</div>

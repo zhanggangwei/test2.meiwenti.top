@@ -1,0 +1,25 @@
+<script>
+    var dataurl="<{:U('Admin/Group/getGroupList')}>";
+</script>
+
+<div class="pageContent" style="position:absolute;top:0;bottom: 10pt;width:100%">
+	<table class="table table-bordered" data-toggle="datagrid" data-options="{
+		height:'100%',
+		width:'100%',
+		showLinenumber:false,
+        dataUrl:dataurl,
+        filterThead:false,
+        columnMenu:false,
+        local:'remote'
+	}" id="datagrid-test-t1-filter">
+	    <thead>
+	        <tr>
+	            <th data-options="{name:'id',align:'center'}" style="width:30%">ID</th>
+	            <th data-options="{name:'title',align:'center'}" style="width:30%">组名称</th>
+	            <th data-options="{name:'dostr',align:'center'}" style="width:30%">操作</th>
+	        </tr>
+	    </thead>
+	</table>
+
+</div>
+

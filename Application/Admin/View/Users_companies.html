@@ -1,0 +1,64 @@
+<script>
+    var dataurl="<{:U('Admin/Users/getCompanies')}>";
+</script>
+<div class="bjui-pageHeader" style="background-color:#fefefe; border-bottom:none;">
+    <form action="" data-toggle="ajaxsearch" data-options="{searchDatagrid:$.CurrentNavtab.find('#datagrid-all-companies-filter')}" id="admin-company-search-form">
+        <div style="margin:0; padding:1px 5px 5px;">
+            <div style="display: block">
+            <span>公司名：</span>
+            <input type="text" name="name" size="10">
+            <span>营业执照：</span>
+            <input type="text" name="lic_number" size="10">
+            <span>负责人姓名：</span>
+            <input type="text" name="real_name" size="10">
+            </div>
+            <div style="margin-top:5px">
+            <span>负责人手机：</span>
+            <input type="text" name="phone" size="10">
+            <span>是否认领：</span>
+            <select name="is_auth" id="users_com_is_auth" data-toggle="selectpicker" data-width="70">
+                <option value="">全部</option>
+                <option value="1">待认领</option>
+                <option value="2">已认领</option>
+            </select>
+            <div class="btn-group">
+                <button type="submit" class="btn-green" data-icon="search">开始搜索！</button>
+                <button type="reset" class="btn-orange" data-icon="times">重置</button>
+            </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="pageContent" style="position:absolute;top:60pt;bottom: 10pt;width: 100%">
+    <table class="table table-bordered" data-toggle="datagrid" data-options="{
+        height:'100%',
+        gridTitle: '公司列表',
+		 showLinenumber:false,
+        dataUrl: dataurl,
+        fieldSortable:false,
+        filterMult:false,
+        columnMenu:false,
+        local:'remote',
+        filterThead:false,
+        paging:{pageSize:10}
+	}" id="datagrid-all-companies-filter">
+        <thead>
+        <tr>
+            <th data-options="{name:'id',align:'center'}" style="min-width: 30px">ID</th>
+            <th data-options="{name:'name',align:'center'}" style="min-width: 200px">公司名</th>
+            <th data-options="{name:'lic_number',align:'center'}" style="min-width: 100px">证件号</th>
+            <th data-options="{name:'real_name',align:'center'}" style="min-width: 100px">负责人</th>
+            <th data-options="{name:'phone',align:'center'}" style="min-width: 120px">负责人手机</th>
+            <th data-options="{name:'create_time',align:'center'}" style="min-width: 100px">注册日期</th>
+            <th data-options="{name:'dostr',align:'center'}" style="min-width: 100px">操作</th>
+        </tr>
+        </thead>
+    </table>
+
+</div>
+<script>
+    $(function () {
+        $('#users_com_is_auth').val(<{$is_auth}>);
+    });
+</script>

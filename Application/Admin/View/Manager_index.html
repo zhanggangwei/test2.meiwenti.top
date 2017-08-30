@@ -1,0 +1,54 @@
+<script>
+	var dataurl="<{:U('Admin/Manager/getManageList')}>";
+	$('#manage-form').attr('action', dataurl);
+</script>
+<div class="bjui-pageHeader" style="background-color:#fefefe; border-bottom:none;">
+	<form action="" data-toggle="ajaxsearch" data-options="{searchDatagrid:$.CurrentNavtab.find('#datagrid-test-t-filter')}" id="manage-form">
+		<fieldset>
+			<div style="margin:0; padding:1px 5px 5px;">
+				<span>所属组：</span>
+				<input type="text" name="title" class="form-control" size="15">
+
+				<span>账号：</span>
+				<input type="text" name="account" class="form-control" size="15">
+
+				<div class="btn-group">
+					<button type="submit" class="btn-green" data-icon="search">开始搜索！</button>
+					<button type="reset" class="btn-orange" data-icon="times">重置</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</div>
+
+<div class="pageContent" style="position:absolute;top:40pt;bottom: 10pt;width: 100%">
+	<table class="table table-bordered" data-toggle="datagrid" data-options="{
+        height:'100%',
+		 showLinenumber:false,
+        dataUrl: dataurl,
+        fieldSortable:false,
+        filterMult:false,
+        columnMenu:false,
+        local:'remote',
+        filterThead:false,
+        paging:{pageSize:10}
+	}" id="datagrid-test-t-filter">
+	    <thead>
+	        <tr>
+	            <th data-options="{name:'id',align:'center'}" style="width:5%">ID</th>
+	            <th data-options="{name:'account',align:'center'}" style="width:5%">账号</th>
+	            <th data-options="{name:'phone',align:'center'}" style="width:5%">手机</th>
+	            <th data-options="{name:'title',align:'center'}" style="width:5%">所属组</th>
+				<th data-options="{name:'nickname',align:'center'}" style="width:5%">昵称</th>
+	            <th data-options="{name:'create_time',align:'center'}" style="width:5%">添加时间</th>
+	            <th data-options="{name:'is_lock',align:'center',render:function(value){return value==1?'锁定':'正常'}}" style="width:5%">状态</th>
+	            <th data-options="{name:'dostr',align:'center'}" style="width:5%">操作</th>
+	        </tr>
+	    </thead>
+	</table>
+
+</div>
+<script>
+
+</script>
+

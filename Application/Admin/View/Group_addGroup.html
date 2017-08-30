@@ -1,0 +1,33 @@
+<div class="pageContent" style="overflow-y:scroll;">
+    <form action="<{:U('Admin/Group/add')}>" id="j_custom_form" data-toggle="validate" data-alertmsg="false" method="post">
+        <div style="margin: 0 auto;max-width:500pt;float: left;padding: 30pt;">
+            <div class="bjui-row col-1">
+                <label class="row-label">用户组名称：</label>
+                <div class="row-input"><input type="text" name="title" value="" data-rule="required"></div>
+            </div>
+            <volist name="auth_info" id="vo">
+                <!-- <input type="checkbox" name="ruleids[]" id="j_form_checkbox<{$vo.id}>" value="<{$vo.id}>" data-toggle="icheck" data-label="<{$vo.title}>" <php>if(in_array($vo['id'], $rules_array)){echo 'checked';}</php>><br/> -->
+                <!-- <p><{$vo.title}></p><br/> -->
+                <volist name="vo['list']" id="vo2">
+                    <!-- &nbsp;&nbsp;<input type="checkbox" name="ruleids[]" id="j_form_checkbox<{$vo2.id}>" value="<{$vo2.id}>" data-toggle="icheck" data-label="<{$vo2.title}>" <php>if(in_array($vo2['id'], $rules_array)){echo 'checked';}</php>><br/> -->
+                    &nbsp;&nbsp;<p><strong><{$vo2.title}></strong></p><br/>
+                    <div>
+                    <volist name="vo2['list']" id="vo3">
+                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="ruleids_level3[]" id="j_form_checkbox<{$vo3.id}>" value="<{$vo3.id}>" data-toggle="icheck" data-label="<{$vo3.title}>"><span style="width:50;display: inline-block;"></span>
+                    </volist>
+                    </div>
+                    <br/>
+                </volist>
+                <hr>
+            </volist>
+            <hr style="margin:5px 0 15px;">
+            <div class="text-center">
+                <button type="submit" class="btn-default btn">提交</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+var h = $(window).height() - 100;
+$('.pageContent').css('height',h);
+</script>

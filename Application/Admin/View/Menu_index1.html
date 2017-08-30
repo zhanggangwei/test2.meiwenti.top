@@ -1,0 +1,69 @@
+<script>
+	var dataurl="<{:U('Admin/Menu/getVipMenuData')}>";
+	var editurl="<{:U('Admin/Menu/edit')}>";
+	var delurl="<{:U('Admin/Menu/del')}>";
+	var dropurl="<{:U('Admin/Menu/drop')}>";
+</script>
+
+<table id="j_datagrid_tree1" data-toggle="datagrid" data-options="{
+    width: '100%',
+    height: '100%',
+    gridTitle: '菜单',
+    showToolbar: true,
+    toolbarItem:'add, cancel, del, save',
+    local: 'local',
+    dataUrl: dataurl,
+    inlineEditMult: false,
+    editUrl: editurl,
+    delUrl:delurl,
+    isTree: 'title',
+    addLocation: 'last',
+    fieldSortable: false,
+    columnMenu: false,
+    paging: {pageSize:100},
+    treeOptions: {
+        expandAll: false,
+        add: true,
+        simpleData: true,
+        keys: {
+            parentKey: 'pid',
+            order:'sort'
+        }
+    },
+    dropOptions: {
+        drop: true,
+        position: 'before',
+        dropUrl: dropurl,
+        beforeDrag: datagrid_tree_beforeDrag,
+        beforeDrop: datagrid_tree_beforeDrop,
+        afterDrop: 'array'
+    }
+}">
+	<thead>
+	<tr>
+		<th data-options="{name:'title', align:'center', width:300, rule:'required'}">菜单名称</th>
+		<th data-options="{name:'name', align:'center', width:300, rule:'required'}">标识符</th>
+        <th data-options="{name:'sort', align:'center', width:300, rule:'required'}">排序</th>
+		<th data-options="{render:datagrid_tree_operation}">操作列</th>
+	</tr>
+	</thead>
+</table>
+<script type="text/javascript">
+
+    // 操作列
+    function datagrid_tree_operation() {
+        var html = '<button type="button" class="btn-green" data-toggle="edit.datagrid.tr">编辑</button>'
+            + '<button type="button" class="btn-red" data-toggle="del.datagrid.tr">删除</button>'
+
+        return html
+    }
+    //不能拖动一级父节点
+    function datagrid_tree_beforeDrag(tr, data) {
+        return !(data && data.level == 0);
+    }
+    // 不能将子节点拖为一级父节点
+    function datagrid_tree_beforeDrop(data, targetData, position) {
+        return !(targetData && targetData.level == 0 && position !== 'append');
+    }
+</script>
+

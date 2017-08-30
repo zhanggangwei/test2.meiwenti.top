@@ -1,0 +1,60 @@
+<script>
+    var dataurl="<{:U('Admin/Users/getDrivers')}>";
+</script>
+<div class="bjui-pageHeader" style="background-color:#fefefe; border-bottom:none;">
+    <form action="" data-toggle="ajaxsearch" data-options="{searchDatagrid:$.CurrentNavtab.find('#datagrid-all-driver-filter')}" id="admin-driver-search-form">
+        <fieldset>
+            <div style="margin:0; padding:1px 5px 5px;">
+                <span>账号：</span>
+                <input type="text" name="account" size="15">
+                <span>姓名：</span>
+                <input type="text" name="name" size="15">
+                <span>手机：</span>
+                <input type="text" name="phone" size="15">
+                <span>车牌号：</span>
+                <input type="text" name="lic_number" size="15">
+                <div class="btn-group">
+                    <button type="submit" class="btn-green" data-icon="search">开始搜索！</button>
+                    <button type="reset" class="btn-orange" data-icon="times">重置</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<div class="pageContent" style="position:absolute;top:40pt;bottom: 10pt;width: 100%">
+    <table class="table table-bordered" data-toggle="datagrid" data-options="{
+        height:'100%',
+        gridTitle: '司机列表',
+		 showLinenumber:false,
+        dataUrl: dataurl,
+        fieldSortable:false,
+        filterMult:false,
+        columnMenu:false,
+        local:'remote',
+        filterThead:false,
+        paging:{pageSize:10}
+	}" id="datagrid-all-driver-filter">
+        <thead>
+        <tr>
+            <th data-options="{name:'id',align:'center'}" style="min-width: 50px">ID</th>
+            <th data-options="{name:'account',align:'center'}" style="min-width: 100px">账号</th>
+            <th data-options="{name:'real_name',align:'center'}" style="min-width: 100px">姓名</th>
+            <th data-options="{name:'phone',align:'center'}" style="min-width: 120px">手机号</th>
+            <th data-options="{name:'truck_lic_number',align:'center'}" style="min-width: 100px">绑定车牌号</th>
+            <th data-options="{name:'use_company',align:'center'}" style="min-width: 100px">当前使用公司</th>
+            <th data-options="{name:'create_time',align:'center'}" style="min-width: 100px">注册日期</th>
+            <!--<th data-options="{name:'num',align:'center'}" style="min-width: 30px">拥有车辆</th>-->
+            <th data-options="{name:'is_passed',align:'center',render:function(value){return value?'已通过':'未审核'}}" style="min-width: 100px">审核状态</th>
+            <!--<th data-options="{name:'province',align:'center'}" style="min-width: 100px">省</th>-->
+            <!--<th data-options="{name:'city',align:'center'}" style="min-width: 100px">市</th>-->
+            <!--<th data-options="{name:'area',align:'center'}" style="min-width: 100px">区</th>-->
+            <!--<th data-options="{name:'detail',align:'center'}" style="min-width: 250px">详细地址</th>-->
+            <th data-options="{name:'dostr',align:'center'}" style="min-width: 100px">操作</th>
+        </tr>
+        </thead>
+    </table>
+
+</div>
+<script>
+</script>

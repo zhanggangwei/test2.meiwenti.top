@@ -1,0 +1,46 @@
+<div class="bjui-pageHeader" style="background-color:#fefefe; border-bottom:none;">
+	<form data-toggle="ajaxsearch" data-options="{searchDatagrid:$.CurrentNavtab.find('#datagrid-test-t-filter')}">
+		<fieldset>
+			<legend style="font-weight:normal;">页头搜索：</legend>
+			<div style="margin:0; padding:1px 5px 5px;">
+				<span>标题：</span>
+				<input type="text" name="title" class="form-control" size="15">
+
+				<span>url：</span>
+				<input type="text" name="url" class="form-control" size="15">
+				<input type="text" name="url" class="form-control" size="15">
+
+				<div class="btn-group">
+					<button type="submit" class="btn-green" data-icon="search">开始搜索！</button>
+					<button type="reset" class="btn-orange" data-icon="times">重置</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</div>
+<script>
+	var dataurl="<{:U('article')}>";
+</script>
+<div class="pageContent">
+	<table class="table table-bordered" data-toggle="datagrid" data-options="{
+		height:800,
+        dataUrl:dataurl,
+        filterThead:false,
+        local:'remote'
+	}" id="datagrid-test-t-filter">
+	    <thead>
+	        <tr>
+	            <th data-options="{name:'id',align:'center'}">ID</th>
+	            <th data-options="{name:'title',align:'center'}">标题</th>
+	            <th data-options="{name:'url',align:'center'}">详细</th>
+	            <th data-options="{name:'dostr',align:'center'}">操作</th>
+	        </tr>
+	    </thead>
+	</table>
+
+</div>
+
+<div class="pageFooter">
+	
+</div>
+

@@ -1,0 +1,62 @@
+<script>
+    var dataurl="<{:U('Admin/Truck/getNormal')}>";
+</script>
+<div class="bjui-pageHeader" style="background-color:#fefefe; border-bottom:none;">
+	<form action="" data-toggle="ajaxsearch" data-options="{searchDatagrid:$.CurrentNavtab.find('#datagrid-truck-normal-filter')}" id="users-audit-driver-form">
+		<fieldset>
+			<div style="margin:0; padding:1px 5px 5px;">
+				<span>公司名：</span>
+				<select name="user_id" id="">
+					<option value="">全部</option>
+					<volist name="company" id="vo">
+						<option value="<{$vo.user_id}>"><{$vo.name}></option>
+					</volist>
+				</select>
+				<span>车牌号：</span>
+				<input type="text" name="lic_number" class="form-control" size="15"/>
+				<span>车小号：</span>
+				<input type="text" name="owner_order" class="form-control" size="15"/>
+				<span>车辆状态：</span>
+				<select name="truck_state">
+					<option value="">全部</option>
+					<volist name="truck_state" id="vo">
+						<option value="<{$vo[0]}>"><{$vo[1]}></option>
+					</volist>
+				</select>
+				<div class="btn-group">
+					<button type="submit" class="btn-green" data-icon="search">开始搜索！</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</div>
+
+<div class="pageContent" style="position:absolute;top:49pt;bottom: 40pt;width: 100%">
+	<table class="table table-bordered" data-toggle="datagrid" data-options="{
+        height:'100%',
+        gridTitle: '车辆状态',
+		 showLinenumber:false,
+        dataUrl: dataurl,
+        fieldSortable:false,
+        filterMult:false,
+        columnMenu:false,
+        local:'remote',
+        filterThead:false,
+        paging:{pageSize:10}
+	}" id="datagrid-truck-normal-filter">
+		<thead>
+		<tr>
+			<th data-options="{name:'id',align:'center'}" style="min-width: 30px">车辆ID</th>
+			<th data-options="{name:'user_id',align:'center'}" style="min-width: 50px">公司ID</th>
+			<th data-options="{name:'company_name',align:'center'}" style="min-width: 300px">公司名</th>
+			<th data-options="{name:'lic_number',align:'center'}" style="min-width: 100px">车牌号</th>
+			<th data-options="{name:'owner_order',align:'center'}" style="min-width: 100px">车小号</th>
+			<th data-options="{name:'truck_state',align:'center'}" style="min-width: 100px">车辆状态</th>
+			<th data-options="{name:'bill_state',align:'center'}" style="min-width: 100px">订单状态</th>
+			<th data-options="{name:'driver_state',align:'center'}" style="min-width: 100px">司机状态</th>
+			<th data-options="{name:'sap_result',align:'center'}" style="min-width: 150px">SAP返回结果</th>
+			<th data-options="{name:'dostr',align:'center'}" style="min-width: 100px">操作</th>
+		</tr>
+		</thead>
+	</table>
+</div>

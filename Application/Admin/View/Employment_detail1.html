@@ -1,0 +1,62 @@
+<div class="pageContent">
+        <button class="btn btn-default" id="edit-recruit-btn">编辑</button>
+        <div style="margin: 0 auto;max-width:500pt;float: left;padding: 30pt">
+            <div class="bjui-table">
+                <table class="table table-bordered">
+                    <tr>
+                        <td>职位名称：</td>
+                        <td><{$info.title}></td>
+                        <td>招聘人数：</td>
+                        <td><{$info.number}></td>
+                    </tr>
+                    <tr>
+                        <td>招聘公司：</td>
+                        <td colspan="3"><{$info.editor_company}></td>
+                    </tr>
+                    <tr>
+                        <td>地址：</td>
+                        <td colspan="3"><{$info.address}></td>
+                    </tr>
+                    <tr>
+                        <td>学历要求：</td>
+                        <td><{$info.education}></td>
+                        <td>工作经验：</td>
+                        <td><{$info.worked}></td>
+                    </tr>
+                    <tr>
+                        <td>驾驶证：</td>
+                        <td><{$info.lic_level}></td>
+                        <td>发布者：</td>
+                        <td><{$info.editor_name}></td>
+                    </tr>
+                    <tr>
+                        <td>期望月薪：</td>
+                        <td><{$info.salary}></td>
+                        <td>添加时间：</td>
+                        <td><{$info.addate}></td>
+                    </tr>
+                    <tr>
+                        <td>审核状态：</td>
+                        <td colspan="3"><{$info['is_passed']?'已审核':'未审核'}></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">补充内容：</td>
+                        <td rowspan="2" colspan="3"><{$info['comment']}></td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+</div>
+<script>
+    $('#edit-recruit-btn').click(function () {
+        BJUI.dialog('closeCurrent');
+        BJUI.dialog({
+            id:'edit-recruit1',
+            url:'<{:U('Admin/Employment/editRecruit/id/'.$info['id'])}>',
+            title:'编辑招聘信息',
+            height:'600',
+            width:'600'
+        });
+    });
+</script>
